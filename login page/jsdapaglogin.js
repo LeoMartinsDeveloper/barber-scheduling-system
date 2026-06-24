@@ -25,7 +25,7 @@ function logar(){
 
         if(response.ok){
             alert("Login realizado com sucesso!");
-            window.location.href = "index.html";
+            window.location.href = "../gerenciamento page/gerenciamento.html";
         }else{
             alert("Email ou senha inválidos!");
         }
