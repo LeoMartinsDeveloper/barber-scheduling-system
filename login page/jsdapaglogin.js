@@ -1,6 +1,6 @@
 var formulario = document.querySelector("form");
-var Iemail = document.querySelector(".email");
-var Isenha = document.querySelector(".senha");
+var Iemail = document.getElementById("email");
+var Isenha = document.getElementById("senha");
 
 function logar(){
 
@@ -21,9 +21,11 @@ function logar(){
 
     .then(response => {
 
+        console.log(response.status);
+
         if(response.ok){
             alert("Login realizado com sucesso!");
-            window.location.href = "dashboard.html";
+            window.location.href = "../gerenciamento page/gerenciamento.html";
         }else{
             alert("Email ou senha inválidos!");
         }
