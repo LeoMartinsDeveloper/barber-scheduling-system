@@ -35,7 +35,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="1"
+            data-nome="Só cabelo"
+            data-preco="60"
+          
+            >
             <img
               src="../assets main page/homem-cabelo.svg"
               alt="Cabelo"
@@ -51,7 +55,10 @@
           </div>
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="2"
+            data-nome="Corte e Sobrancelha"
+            data-preco="110"
+            >
             <img
               src="../assets main page/corte-sobrancelha.svg"
               alt="Sobrancelha"
@@ -66,7 +73,10 @@
           </div>
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="3"
+            data-nome="Barba"
+            data-preco="60"
+            >
             <img
               src="../assets main page/design-barba.svg"
               alt="Barba"
@@ -81,7 +91,10 @@
           </div>
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="4"
+            data-nome="Pacote completo"
+            data-preco="160"
+            >
             <img
               src="../assets main page/pacote-completo.svg"
               alt="Completo"
@@ -97,21 +110,19 @@
           </div>
         </div>
         <div
-          class="mt-4 border-t border-gray-300 pt-4 flex flex-col gap-1.5 text-sm"
-        >
-          <div class="flex justify-between items-center">
-            <span class="text-gray-700">Pacote: Design de Barba</span>
-            <span class="font-bold">R$ 60,00</span>
-          </div>
-          <div class="flex justify-between items-center">
-            <span class="text-gray-700">Pacote: Corte + Sobrancelha</span>
-            <span class="font-bold">R$ 110,00</span>
-          </div>
-          <div class="border-t border-gray-200 my-1"></div>
-          <div class="flex justify-between items-center font-black text-base">
+            id="resumo-servicos"
+            class="mt-4 border-t border-gray-300 pt-4 flex flex-col gap-2">
+
+        </div>
+
+        <div class="border-t border-gray-200 my-2"></div>
+
+        <div class="flex justify-between font-black">
             <span>Total</span>
-            <span>R$ 170,00</span>
-          </div>
+
+            <span id="total-servicos">
+                R$ 0,00
+            </span>
         </div>
       </div>
       <div class="flex flex-col gap-6">
