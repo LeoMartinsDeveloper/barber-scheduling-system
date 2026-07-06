@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo - Bloquear Horários</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50 font-sans m-0 p-0 text-gray-900">
+    <div class="flex h-screen w-full overflow-hidden">
+      <aside
+        class="w-20 bg-black flex flex-col items-center py-6 justify-between shrink-0"
+      >
+        <div class="flex flex-col items-center space-y-8 w-full">
+          <div
+            class="w-10 h-10 bg-white rounded-xl flex items-center justify-center font-bold text-black text-xl"
+          >
+            B
+          </div>
+          <nav class="flex flex-col space-y-6 w-full items-center">
+            <a
+              href="#"
+              class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+              ><i class="fas fa-cut text-lg"></i
+            ></a>
+            <a
+              href="#"
+              class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+              ><i class="fas fa-clipboard-list text-lg"></i
+            ></a>
+            <a
+              href="#"
+              class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+              ><i class="fas fa-user-cog text-lg"></i
+            ></a>
+            <a
+              href="#"
+              class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+              ><i class="fas fa-users text-lg"></i
+            ></a>
+            <a
+              href="#"
+              class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+              ><i class="fas fa-calendar-alt text-lg"></i
+            ></a>
+            <a href="#" class="p-3 text-white bg-gray-900 rounded-xl"
+              ><i class="fas fa-ban text-lg"></i
+            ></a>
+          </nav>
+        </div>
+        <button class="p-3 text-gray-400 hover:text-red-500 transition">
+          <i class="fas fa-sign-out-alt text-lg"></i>
+        </button>
+      </aside>
+
+      <main class="flex-1 h-screen overflow-y-auto p-8">
+        <div class="max-w-4xl mx-auto w-full">
+          <div class="flex justify-between items-center mb-10">
+            <h1 class="text-2xl font-bold text-gray-900">Bloquear horários</h1>
+            <button
+              id="btn-desconectar"
+              class="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition"
+            >
+              <i class="fas fa-sign-out-alt"></i> Desconectar
+            </button>
+          </div>
+
+          <section class="mb-10">
+            <h2 class="text-xl font-bold text-center text-gray-900 mb-6">
+              Selecione um profissional
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <button
+                class="card-barbeiro-adm bg-white p-4 rounded-2xl border-2 border-gray-200 flex items-center gap-4 text-left hover:border-black transition w-full"
+              >
+                <img
+                  src="/assets main page/homem-solo.png"
+                  alt="Coquin"
+                  class="w-16 h-16 rounded-full object-cover bg-gray-200"
+                />
+                <div>
+                  <h4 class="font-bold text-gray-900">Coquin</h4>
+                  <p class="text-sm text-gray-500">Visagista</p>
+                </div>
+              </button>
+              <button
+                class="card-barbeiro-adm bg-white p-4 rounded-2xl border-2 border-gray-200 flex items-center gap-4 text-left hover:border-black transition w-full"
+              >
+                <img
+                  src="assets main page/barbeiro-carrossel.jpg"
+                  alt="Junin"
+                  class="w-16 h-16 rounded-full object-cover bg-gray-200"
+                />
+                <div>
+                  <h4 class="font-bold text-gray-900">Junin</h4>
+                  <p class="text-sm text-gray-500">Beard designer</p>
+                </div>
+              </button>
+              <button
+                class="card-barbeiro-adm bg-white p-4 rounded-2xl border-2 border-gray-200 flex items-center gap-4 text-left hover:border-black transition w-full"
+              >
+                <img
+                  src="assets main page/barbeiro-carrossel2.jpg"
+                  alt="Gustavo"
+                  class="w-16 h-16 rounded-full object-cover bg-gray-200"
+                />
+                <div>
+                  <h4 class="font-bold text-gray-900">Gustavo</h4>
+                  <p class="text-sm text-gray-500">Designer de sobrancelhas</p>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <section class="mb-20">
+            <h2 class="text-xl font-bold text-center text-gray-900 mb-6">
+              Selecione dia e horário
+            </h2>
+
+            <div
+              id="calendario-adm"
+              class="bg-white p-4 rounded-xl border border-gray-200 mb-6 max-w-sm mx-auto w-full shadow-sm"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3
+                  id="calendar-month-year"
+                  class="font-bold text-gray-900 text-sm"
+                ></h3>
+                <div class="flex gap-0.5">
+                  <button
+                    id="btn-prev-month"
+                    type="button"
+                    class="p-1.5 text-gray-600 hover:bg-gray-100 rounded-lg transition text-xs"
+                  >
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button
+                    id="btn-next-month"
+                    type="button"
+                    class="p-1.5 text-gray-600 hover:bg-gray-100 rounded-lg transition text-xs"
+                  >
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-gray-400 mb-2"
+              >
+                <div>DOM</div>
+                <div>SEG</div>
+                <div>TER</div>
+                <div>QUA</div>
+                <div>QUI</div>
+                <div>SEX</div>
+                <div>SÁB</div>
+              </div>
+              <div id="calendar-days-grid" class="grid grid-cols-7 gap-1"></div>
+            </div>
+
+            <div
+              class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3 mb-8"
+            >
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                08:00
+              </button>
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                09:00
+              </button>
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                10:00
+              </button>
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                11:00
+              </button>
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                13:00
+              </button>
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                14:00
+              </button>
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                15:00
+              </button>
+              <button
+                class="horario-adm-item border border-gray-300 py-3 rounded-md text-center font-medium bg-white text-gray-900 hover:bg-gray-50 transition"
+              >
+                16:00
+              </button>
+            </div>
+
+            <div class="flex justify-end">
+              <button
+                id="btn-salvar-bloqueios"
+                class="w-full sm:w-auto bg-black text-white px-8 py-3 rounded-xl font-medium hover:bg-gray-800 transition flex items-center justify-center gap-2 shadow-sm"
+              >
+                <i class="fas fa-save"></i> Salvar alterações
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="adm-bloqueio.js"></script>
+  </body>
+</html>
