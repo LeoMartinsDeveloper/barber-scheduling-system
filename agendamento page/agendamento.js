@@ -1,4 +1,11 @@
+
+let servicosSelecionados = [];
+
+
 export function inicializarLogicaModal() {
+
+  const resumoServicos = document.getElementById("resumo-servicos");
+  const totalServicos = document.getElementById("total-servicos");
 
   const modal = document.getElementById("modal-agendamento");
   const closeModalBtn = document.getElementById("fechar-modal-agendamento");
@@ -42,6 +49,14 @@ export function inicializarLogicaModal() {
       btn.classList.remove("bg-black", "text-white");
       btn.classList.add("bg-white");
     });
+
+    servicosSelecionados = [];
+
+    console.log(servicosSelecionados);  
+
+    atualizarResumo();
+
+    console.log(servicosSelecionados);  
   }
 
   openModalButtons.forEach((button) => {
@@ -80,37 +95,112 @@ export function inicializarLogicaModal() {
   });
 
   botaoServicos.forEach((button) => {
-    button.addEventListener("click", () => {
-      botaoServicos.forEach((btn) => {
-        btn.classList.remove("bg-black", "text-white");
-        btn.classList.add("bg-white");
 
-        const descricao = btn.querySelector("p");
+    button.addEventListener("click", () => {
+
+      const id = button.dataset.id;
+      const nome = button.dataset.nome;
+      const preco = Number(button.dataset.preco);
+
+      // Se selecionou o pacote completo
+      if (id === "4") {
+
+          // Limpa todos os serviços selecionados
+          servicosSelecionados = [];
+
+          // Remove o destaque de todos os cards
+          botaoServicos.forEach(btn => {
+              btn.classList.remove("bg-black", "text-white");
+              btn.classList.add("bg-white");
+
+              const descricao = btn.querySelector("p");
+              if (descricao) {
+                  descricao.classList.remove("text-white");
+                  descricao.classList.add("text-gray-500");
+              }
+
+              const icone = btn.querySelector("img, svg");
+              if (icone) {
+                  icone.classList.remove("invert");
+              }
+          });
+      }
+
+      const indice = servicosSelecionados.findIndex(
+        servico => servico.id === id
+      );
+
+      if (indice >= 0) {
+
+        servicosSelecionados.splice(indice, 1);
+
+        button.classList.remove("bg-black", "text-white");
+        button.classList.add("bg-white");
+
+        const descricao = button.querySelector("p");
+
         if (descricao) {
           descricao.classList.remove("text-white");
           descricao.classList.add("text-gray-500");
         }
 
-        const icone = btn.querySelector("img, svg");
+        const icone = button.querySelector("img, svg");
+
         if (icone) {
           icone.classList.remove("invert");
         }
-      });
 
-      button.classList.remove("bg-white");
-      button.classList.add("bg-black", "text-white");
+      } else {
 
-      const descricao = button.querySelector("p");
-      if (descricao) {
-        descricao.classList.remove("text-gray-500");
-        descricao.classList.add("text-white");
+        // Se algum pacote completo já estava selecionado e o usuário escolheu outro serviço,
+        // remove o pacote completo.
+        servicosSelecionados = servicosSelecionados.filter(servico => servico.id !== "4");
+
+        const pacoteCompleto = document.querySelector('[data-id="4"]');
+
+        if (pacoteCompleto) {
+            pacoteCompleto.classList.remove("bg-black", "text-white");
+            pacoteCompleto.classList.add("bg-white");
+
+            const descricao = pacoteCompleto.querySelector("p");
+            if (descricao) {
+                descricao.classList.remove("text-white");
+                descricao.classList.add("text-gray-500");
+            }
+
+            const icone = pacoteCompleto.querySelector("img, svg");
+            if (icone) {
+                icone.classList.remove("invert");
+            }
+        }
+        servicosSelecionados.push({
+          id,
+          nome,
+          preco
+        });
+
+        button.classList.remove("bg-white");
+        button.classList.add("bg-black", "text-white");
+
+        const descricao = button.querySelector("p");
+
+        if (descricao) {
+          descricao.classList.remove("text-gray-500");
+          descricao.classList.add("text-white");
+        }
+
+        const icone = button.querySelector("img, svg");
+
+        if (icone) {
+          icone.classList.add("invert");
+        }
+
       }
 
-      const icone = button.querySelector("img, svg");
-      if (icone) {
-        icone.classList.add("invert");
-      }
+      atualizarResumo();
+
     });
+
   });
 
   botaoBarbeiro.forEach((button) => {
@@ -170,7 +260,7 @@ export function inicializarLogicaModal() {
 
       if (
         !diaSelecionado ||
-        !servicoSelecionado ||
+        servicosSelecionados.length === 0 ||
         !barbeiroSelecionado ||
         !horarioSelecionado
       ) {
@@ -198,4 +288,31 @@ export function inicializarLogicaModal() {
       }
     });
   }
+}
+
+function atualizarResumo() {
+
+  const resumoServicos = document.getElementById("resumo-servicos");
+  const totalServicos = document.getElementById("total-servicos");
+
+  resumoServicos.innerHTML = "";
+
+  let total = 0;
+
+  servicosSelecionados.forEach(servico => {
+
+    total += servico.preco;
+
+    resumoServicos.innerHTML += `
+      <div class="flex justify-between items-center">
+          <span class="text-gray-700">Pacote: ${servico.nome}</span>
+          <span class="font-bold">R$ ${servico.preco.toFixed(2).replace(".", ",")}</span>
+      </div>
+    `;
+
+  });
+
+  totalServicos.textContent =
+    `R$ ${total.toFixed(2).replace(".", ",")}`;
+
 }
