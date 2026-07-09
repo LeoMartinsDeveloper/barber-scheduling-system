@@ -1,3 +1,4 @@
+import { salvarAgendamento } from "./notificacao.js";
 
 let servicosSelecionados = [];
 
@@ -91,6 +92,8 @@ export function inicializarLogicaModal() {
         btn.classList.remove("bg-black", "text-white");
       });
       button.classList.add("bg-black", "text-white");
+
+      atualizarHorariosDisponiveis();
     });
   });
 
@@ -221,6 +224,8 @@ export function inicializarLogicaModal() {
         cargo.classList.remove("text-gray-500");
         cargo.classList.add("text-white");
       }
+
+      atualizarHorariosDisponiveis();
     });
   });
 
@@ -258,28 +263,67 @@ export function inicializarLogicaModal() {
         .querySelector(".botao-horario.bg-black")
         ?.textContent.trim();
 
+
+      const nome = document.getElementById("nome-cliente").value.trim();
+      const email = document.getElementById("email-cliente").value.trim();
+      const telefone = document.getElementById("telefone-cliente").value.trim();
+      const valorTotal = servicosSelecionados.reduce((total, servico) => total + servico.preco, 0);
+
+      const servicos = servicosSelecionados
+      .map(servico => servico.nome)
+      .join(", ");
+
+
       if (
+        !nome ||
+        !email ||
+        !telefone ||
         !diaSelecionado ||
         servicosSelecionados.length === 0 ||
         !barbeiroSelecionado ||
         !horarioSelecionado
       ) {
-        alert(
-          "Por favor, selecione o dia, o serviço, o barbeiro e o horário antes de confirmar!",
-        );
+      
+        alert("Preencha todos os campos.");
+      
         return;
       }
 
       const dadosAgendamento = {
-        dia: diaSelecionado,
-        servico: servicoSelecionado,
-        barbeiro: barbeiroSelecionado,
-        horario: horarioSelecionado,
-      };
 
+        nome: nome,
+
+        email: email,
+
+        telefone: telefone,
+
+        barbeiro: barbeiroSelecionado,
+
+        dataAgendamento: `2026-07-${diaSelecionado.padStart(2, "0")}`,
+
+        horario: horarioSelecionado,
+
+        servicos: servicos,
+
+        valorTotal: valorTotal
+
+      };
+      
       console.log("Enviando agendamento:", dadosAgendamento);
 
       alert("Agendamento realizado com sucesso!");
+
+      salvarAgendamento(dadosAgendamento)
+      .then(() => {
+
+        alert("Agendamento realizado com sucesso!");
+
+      })
+      .catch(() => {
+        alert("Erro ao realizar o agendamento.");
+      });
+
+      salvarHorarioOcupado( barbeiroSelecionado, diaSelecionado, horarioSelecionado);
 
       if (modal) {
         modal.classList.add("hidden");
@@ -288,6 +332,75 @@ export function inicializarLogicaModal() {
       }
     });
   }
+
+
+  function gerarChaveHorario(barbeiro, dia, horario) {
+  return `${barbeiro}-${dia}-${horario}`;
+}
+
+function salvarHorarioOcupado(barbeiro, dia, horario) {
+  const chave = gerarChaveHorario(barbeiro, dia, horario);
+  localStorage.setItem(chave, "ocupado");
+}
+
+function atualizarHorariosDisponiveis() {
+
+  const diaSelecionado = document
+    .querySelector(".calendar-day.bg-black")
+    ?.textContent.trim();
+
+  const barbeiroSelecionado = document
+    .querySelector(".botao-barbeiro.bg-black h4")
+    ?.textContent.trim();
+
+  if (!diaSelecionado || !barbeiroSelecionado) return;
+
+  botaoHorario.forEach((botao) => {
+
+    const horario = botao.textContent.trim();
+
+    const chave = gerarChaveHorario(
+      barbeiroSelecionado,
+      diaSelecionado,
+      horario
+    );
+
+    if (localStorage.getItem(chave)) {
+
+      botao.disabled = true;
+
+      botao.classList.remove(
+        "bg-black",
+        "text-white",
+        "bg-white"
+      );
+
+      botao.classList.add(
+        "bg-gray-200",
+        "text-gray-400",
+        "cursor-not-allowed",
+        "opacity-50"
+      );
+
+    } else {
+
+      botao.disabled = false;
+
+      botao.classList.remove(
+        "bg-gray-200",
+        "text-gray-400",
+        "cursor-not-allowed",
+        "opacity-50"
+      );
+
+      botao.classList.add("bg-white");
+
+    }
+
+  });
+
+}
+
 }
 
 function atualizarResumo() {
@@ -316,3 +429,4 @@ function atualizarResumo() {
     `R$ ${total.toFixed(2).replace(".", ",")}`;
 
 }
+
