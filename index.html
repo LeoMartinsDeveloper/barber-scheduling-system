@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeBarber</title>
     <link href="./dist/output.css" rel="stylesheet" />
-    <script src="main.js" defer></script>
+    <script type="module" src="main.js" defer></script>
+
+    <link rel="icon" type="image/png" href="assets main page/barbafavicon.png">
+    
     <style>
       * {
         font-family: "Inter", sans-serif !important;
@@ -96,18 +99,16 @@
               Agende seu horário com um de nossos professionals para alavancar
               seu visual com um de nossos pacotes.
             </p>
-            <div class="flex flex-row gap-4 mt-5">
+            <button class="flex flex-row gap-4 mt-5">
               <a
-                href="agendamento page/agendamento.html"
-                class="bg-black font-bold inline-flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
+                class="abrir-agendamento bg-black font-bold inline-flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
                 >Agendar um horário</a
               >
               <a
-                href="agendamento page/agendamento.html"
-                class="bg-white font-bold inline-flex items-center justify-center text-black px-3 py-2 transition-colors cursor-pointer border border-gray-400 shadow-md"
+                class="abrir-agendamento bg-white font-bold inline-flex items-center justify-center text-black px-3 py-2 transition-colors cursor-pointer border border-gray-400 shadow-md"
                 >Ver nossos pacotes</a
               >
-            </div>
+            </button>
           </div>
           <div class="animate-float-1">
             <img
@@ -299,8 +300,7 @@
           style="transform: translate(200px, 100px)"
         >
           <a
-            href="agendamento page/agendamento.html"
-            class="bg-black font-bold inline-flex flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
+            class="abrir-agendamento bg-black font-bold inline-flex flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
             >Conferir disponibilidade</a
           >
         </div>
@@ -442,5 +442,7 @@
         </div>
       </div>
     </div>
+
+    <div id="container-modal"></div>
   </body>
 </html>

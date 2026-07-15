@@ -4,11 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agendamento</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="../main.js"></script>
+  <link rel="icon" type="image/png" href="../assets main page/barbafavicon.png">
+
 </head>
 <body>
   <div
     id="modal-agendamento"
-    class="hidden fixed inset-0 z-50 bg-black/60 overflow-y-auto p-4 flex justify-center items-start"
+    class="fixed inset-0 z-50 bg-black/60 overflow-y-auto p-4 flex justify-center items-start"
   >
     <div
       class="bg-[#f9f9f9] w-full max-w-2xl rounded-xl shadow-2xl my-8 p-6 relative text-black flex flex-col gap-12"
@@ -23,16 +28,20 @@
       </div>
       <div class="flex flex-col gap-6">
         <h2
-          class="text-2xl md:text-3xl font-black text-center text-gray-900 tracking-tight"
+          class="text-2xl md:text-3xl font-black text-center text-black tracking-tight"
         >
           Selecione os serviços desejados
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="1"
+            data-nome="Só cabelo"
+            data-preco="60"
+          
+            >
             <img
-              src="homem-cabelo.svg"
+              src="../assets main page/homem-cabelo.svg"
               alt="Cabelo"
               class="w-12 h-12 object-contain"
             />
@@ -46,9 +55,12 @@
           </div>
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="2"
+            data-nome="Corte e Sobrancelha"
+            data-preco="110"
+            >
             <img
-              src="corte-sobrancelha.svg"
+              src="../assets main page/corte-sobrancelha.svg"
               alt="Sobrancelha"
               class="w-12 h-12 object-contain"
             />
@@ -61,9 +73,12 @@
           </div>
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="3"
+            data-nome="Barba"
+            data-preco="60"
+            >
             <img
-              src="design-barba.svg"
+              src="../assets main page/design-barba.svg"
               alt="Barba"
               class="w-12 h-12 object-contain"
             />
@@ -76,9 +91,12 @@
           </div>
           <div
             class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
-          >
+            data-id="4"
+            data-nome="Pacote completo"
+            data-preco="160"
+            >
             <img
-              src="pacote-completo.svg"
+              src="../assets main page/pacote-completo.svg"
               alt="Completo"
               class="w-12 h-12 object-contain"
             />
@@ -92,21 +110,19 @@
           </div>
         </div>
         <div
-          class="mt-4 border-t border-gray-300 pt-4 flex flex-col gap-1.5 text-sm"
-        >
-          <div class="flex justify-between items-center">
-            <span class="text-gray-700">Pacote: Design de Barba</span>
-            <span class="font-bold">R$ 60,00</span>
-          </div>
-          <div class="flex justify-between items-center">
-            <span class="text-gray-700">Pacote: Corte + Sobrancelha</span>
-            <span class="font-bold">R$ 110,00</span>
-          </div>
-          <div class="border-t border-gray-200 my-1"></div>
-          <div class="flex justify-between items-center font-black text-base">
+            id="resumo-servicos"
+            class="mt-4 border-t border-gray-300 pt-4 flex flex-col gap-2">
+
+        </div>
+
+        <div class="border-t border-gray-200 my-2"></div>
+
+        <div class="flex justify-between font-black">
             <span>Total</span>
-            <span>R$ 170,00</span>
-          </div>
+
+            <span id="total-servicos">
+                R$ 0,00
+            </span>
         </div>
       </div>
       <div class="flex flex-col gap-6">
@@ -121,7 +137,7 @@
             class="botao-barbeiro bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
           >
             <img
-              src="barbeiro-carrossel2.jpg"
+              src="../assets main page/coquincard.jpg"
               alt="Coquin"
               class="w-14 h-14 rounded-full object-cover"
             />
@@ -134,7 +150,7 @@
             class="botao-barbeiro bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
           >
             <img
-              src="barbeiro-carrossel.jpg"
+              src="../assets main page/williamcard.jpg"
               alt="Junin"
               class="w-14 h-14 rounded-full object-cover"
             />
@@ -147,7 +163,7 @@
             class="botao-barbeiro bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
           >
             <img
-              src="homem-solo.png"
+              src="../assets main page/gustavocard.jpg"
               alt="Gustavo"
               class="w-14 h-14 rounded-full object-cover"
             />
@@ -401,6 +417,59 @@
           </div>
         </div>
       </div>
+      
+      <div class="flex flex-col gap-6">
+
+    <h2
+        class="text-2xl md:text-3xl font-black text-center text-black tracking-tight">
+        Seus dados
+    </h2>
+
+  <div class="bg-white p-6 rounded-xl border border-gray-200 flex flex-col gap-4">
+
+    <div>
+        <label class="block text-sm font-semibold mb-2">
+          Nome completo
+        </label>
+
+        <input
+          id="nome-cliente"
+          type="text"
+          placeholder="Digite seu nome"
+          class="w-full px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition"
+            >
+    </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2">
+            E-mail
+          </label>
+
+          <input        
+            id="email-cliente"
+            type="email"
+            placeholder="seuemail@email.com"
+            class="w-full px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition"
+          >
+        </div>
+
+        <div>
+            <label class="block text-sm font-semibold mb-2">
+              Telefone
+            </label>
+
+            <input
+              id="telefone-cliente"
+              type="tel"
+              placeholder="(34) 99999-9999"
+              class="w-full px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition"
+            >
+        </div>
+
+  </div>
+
+  </div>
+
       <div class="w-full pt-4">
         <button
           id="btn-confirmar-agendamento"

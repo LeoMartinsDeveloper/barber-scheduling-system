@@ -1,0 +1,405 @@
+<div
+  id="modal-agendamento"
+  class="hidden fixed inset-0 z-50 bg-black/60 overflow-y-auto p-4 flex justify-center items-start"
+>
+  <div
+    class="bg-[#f9f9f9] w-full max-w-2xl rounded-xl shadow-2xl my-8 p-6 relative text-black flex flex-col gap-12"
+  >
+    <div>
+      <button
+        id="fechar-modal-agendamento"
+        class="text-gray-500 hover:text-black font-bold flex items-center gap-2 text-sm"
+      >
+        &larr; Voltar
+      </button>
+    </div>
+    <div class="flex flex-col gap-6">
+      <h2
+        class="text-2xl md:text-3xl font-black text-center text-gray-900 tracking-tight"
+      >
+        Selecione os serviços desejados
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div
+          class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
+        >
+          <img
+            src="homem-cabelo.svg"
+            alt="Cabelo"
+            class="w-12 h-12 object-contain"
+          />
+          <div>
+            <h4 class="font-bold text-sm">Só cabelo</h4>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+              Corte personalizado e preciso, ideal pra quem quer estilo e
+              cuidado com o cabelo
+            </p>
+          </div>
+        </div>
+        <div
+          class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
+        >
+          <img
+            src="corte-sobrancelha.svg"
+            alt="Sobrancelha"
+            class="w-12 h-12 object-contain"
+          />
+          <div>
+            <h4 class="font-bold text-sm">Corte + Sobrancelha</h4>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+              Corte personalizado, combinado com um design de sobrancelhas
+            </p>
+          </div>
+        </div>
+        <div
+          class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
+        >
+          <img
+            src="design-barba.svg"
+            alt="Barba"
+            class="w-12 h-12 object-contain"
+          />
+          <div>
+            <h4 class="font-bold text-sm">Design de Barba</h4>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+              Design de barba personalizado para o cliente com técnica precisa
+            </p>
+          </div>
+        </div>
+        <div
+          class="botao-pacote bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
+        >
+          <img
+            src="pacote-completo.svg"
+            alt="Completo"
+            class="w-12 h-12 object-contain"
+          />
+          <div>
+            <h4 class="font-bold text-sm">Pacote completo</h4>
+            <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+              Combinação entre todos os pacotes sendo Cabelo + Barba +
+              Sobrancelha
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-4 border-t border-gray-300 pt-4 flex flex-col gap-1.5 text-sm"
+      >
+        <div class="flex justify-between items-center">
+          <span class="text-gray-700">Pacote: Design de Barba</span>
+          <span class="font-bold">R$ 60,00</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="text-gray-700">Pacote: Corte + Sobrancelha</span>
+          <span class="font-bold">R$ 110,00</span>
+        </div>
+        <div class="border-t border-gray-200 my-1"></div>
+        <div class="flex justify-between items-center font-black text-base">
+          <span>Total</span>
+          <span>R$ 170,00</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-6">
+      <h2
+        class="text-2xl md:text-3xl font-black text-center text-gray-900 tracking-tight"
+      >
+        Selecione um profissional
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div
+          class="botao-barbeiro bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
+        >
+          <img
+            src="barbeiro-carrossel2.jpg"
+            alt="Coquin"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+          <div>
+            <h4 class="font-bold text-sm">Coquin</h4>
+            <p class="text-xs text-gray-500">Visagista</p>
+          </div>
+        </div>
+        <div
+          class="botao-barbeiro bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
+        >
+          <img
+            src="barbeiro-carrossel.jpg"
+            alt="Junin"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+          <div>
+            <h4 class="font-bold text-sm">Junin</h4>
+            <p class="text-xs text-gray-500">Designer de barba</p>
+          </div>
+        </div>
+        <div
+          class="botao-barbeiro bg-white p-4 rounded-xl border border-gray-200 flex gap-4 items-center cursor-pointer hover:border-black transition-all"
+        >
+          <img
+            src="homem-solo.png"
+            alt="Gustavo"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+          <div>
+            <h4 class="font-bold text-sm">Gustavo</h4>
+            <p class="text-xs text-gray-500">Designer de sobrancelhas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-6">
+      <h2
+        class="text-2xl md:text-3xl font-black text-center text-gray-900 tracking-tight"
+      >
+        Selecione dia e horário
+      </h2>
+      <div
+        class="bg-white p-4 rounded-xl border border-gray-200 w-full overflow-x-auto"
+      >
+        <div class="min-w-[500px]">
+          <div
+            class="grid grid-cols-7 text-center gap-2 text-xs font-bold text-gray-500 mb-4"
+          >
+            <div>Domingo</div>
+            <div>Segunda</div>
+            <div>Terça</div>
+            <div>Quarta</div>
+            <div>Quinta</div>
+            <div>Sexta</div>
+            <div>Sábado</div>
+          </div>
+          <div class="grid grid-cols-7 text-center gap-2 text-sm text-gray-800">
+            <span class="p-2 text-gray-300">31</span>
+            <button
+              class="p-2 text-gray-300 p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              1
+            </button>
+            <button
+              class="text-gray-300 p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              2
+            </button>
+            <button
+              class="text-gray-300 p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              3
+            </button>
+            <button
+              class="text-gray-300 p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              4
+            </button>
+            <button
+              class="text-gray-300 p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              5
+            </button>
+            <button
+              class="text-gray-300 p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              6
+            </button>
+            <button
+              class="p-2 text-gray-300 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              7
+            </button>
+            <button
+              class="p-2 text-gray-300 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              8
+            </button>
+            <button
+              class="p-2 text-gray-300 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              9
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              10
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              11
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              12
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              13
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              14
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              15
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              16
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              17
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              18
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              19
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              20
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              21
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              22
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              23
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              24
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              25
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              26
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              27
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              28
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              29
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              30
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              31
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              1
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              2
+            </button>
+            <button
+              class="calendar-day p-2 cursor-pointer hover:bg-gray-100 rounded-lg font-semibold"
+            >
+              3
+            </button>
+          </div>
+          <div
+            class="flex flex-row flex-wrap gap-3 items-center justify-center w-full mt-4"
+          >
+            <button
+              class="botao-horario bg-white border border-gray-400 text-gray-900 px-4 cursor-pointer py-2 text-sm font-medium hover:border-black transition-colors"
+            >
+              08:00
+            </button>
+            <button
+              class="botao-horario bg-white text-gray-400 px-4 py-2 text-sm font-medium cursor-not-allowed"
+              disabled
+            >
+              09:00
+            </button>
+            <button
+              class="botao-horario bg-white text-gray-400 px-4 py-2 text-sm font-medium cursor-not-allowed"
+              disabled
+            >
+              10:00
+            </button>
+            <button
+              class="botao-horario bg-white border border-gray-400 text-gray-900 px-4 cursor-pointer py-2 text-sm font-medium hover:border-black transition-colors"
+            >
+              11:00
+            </button>
+            <button
+              class="botao-horario bg-white border-gray-400 text-gray-900 px-4 cursor-pointer py-2 text-sm font-medium border border-black"
+            >
+              13:00
+            </button>
+            <button
+              class="botao-horario bg-white border border-gray-400 text-gray-900 px-4 cursor-pointer py-2 text-sm font-medium hover:border-black transition-colors"
+            >
+              14:00
+            </button>
+            <button
+              class="botao-horario bg-white border border-gray-400 text-gray-900 px-4 cursor-pointer py-2 text-sm font-medium hover:border-black transition-colors"
+            >
+              15:00
+            </button>
+            <button
+              class="botao-horario bg-white border border-gray-400 text-gray-900 px-4 cursor-pointer py-2 text-sm font-medium hover:border-black transition-colors"
+            >
+              16:00
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full pt-4">
+      <button
+        id="btn-confirmar-agendamento"
+        class="w-full bg-black text-white text-base cursor-pointer font-bold py-4 rounded-xl hover:bg-gray-900 transition-colors shadow-lg"
+      >
+        Confirmar minha reserva
+      </button>
+    </div>
+  </div>
+</div>
