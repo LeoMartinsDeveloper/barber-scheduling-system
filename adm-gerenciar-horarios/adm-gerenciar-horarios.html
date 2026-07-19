@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Administrativo - Agendamentos</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+</head>
+
+<body class="bg-gray-50 font-sans m-0 p-0 text-gray-900">
+
+<div class="flex h-screen w-full overflow-hidden">
+
+  <!-- Sidebar -->
+  <aside
+    class="w-20 bg-black flex flex-col items-center py-6 justify-between shrink-0"
+  >
+    <div class="flex flex-col items-center space-y-8 w-full">
+
+      <div
+        class="w-10 h-10 bg-white rounded-xl flex items-center justify-center font-bold text-black text-xl"
+      >
+        B
+      </div>
+
+      <nav class="flex flex-col space-y-6 w-full items-center">
+
+        <a
+          href="#"
+          class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+        >
+          <i class="fas fa-cut text-lg"></i>
+        </a>
+
+        <a
+          href="#"
+          class="p-3 text-white bg-gray-900 rounded-xl"
+        >
+          <i class="fas fa-clipboard-list text-lg"></i>
+        </a>
+
+        <a
+          href="#"
+          class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+        >
+          <i class="fas fa-user-cog text-lg"></i>
+        </a>
+
+        <a
+          href="#"
+          class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+        >
+          <i class="fas fa-users text-lg"></i>
+        </a>
+
+        <a
+          href="#"
+          class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+        >
+          <i class="fas fa-calendar-alt text-lg"></i>
+        </a>
+
+        <a
+          href="#"
+          class="p-3 text-gray-400 hover:text-white rounded-xl transition"
+        >
+          <i class="fas fa-ban text-lg"></i>
+        </a>
+
+      </nav>
+    </div>
+
+    <button class="p-3 text-gray-400 hover:text-red-500 transition">
+      <i class="fas fa-sign-out-alt text-lg"></i>
+    </button>
+  </aside>
+
+  <!-- Conteúdo -->
+  <main class="flex-1 h-screen overflow-y-auto p-8">
+
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Cabeçalho -->
+      <div class="flex justify-between items-center mb-10">
+
+        <h1 class="text-3xl font-bold">
+          Gerenciamento de Agendamentos
+        </h1>
+
+        <button
+          id="btn-desconectar"
+          class="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition"
+        >
+          <i class="fas fa-sign-out-alt"></i>
+          Desconectar
+        </button>
+
+      </div>
+
+      <!-- Filtros -->
+      <section class="bg-white rounded-2xl border border-gray-200 p-6 mb-8 shadow-sm">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <div>
+            <label class="block text-sm font-semibold mb-2">
+              Pesquisar cliente
+            </label>
+
+            <input
+              type="text"
+              placeholder="Digite o nome do cliente..."
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-black"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold mb-2">
+              Barbeiro
+            </label>
+
+            <select
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-black"
+            >
+              <option>Todos</option>
+              <option>Coquin</option>
+              <option>Junin</option>
+              <option>Gustavo</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold mb-2">
+              Data
+            </label>
+
+            <input
+              type="date"
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-black"
+            />
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Lista de Agendamentos -->
+      <section class="space-y-6">
+
+        <!-- Card -->
+        <div
+          class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
+        >
+
+          <div class="flex justify-between items-start mb-4">
+
+            <div>
+              <h2 class="text-xl font-bold">
+                João Pedro
+              </h2>
+
+              <p class="text-gray-500 text-sm">
+                Agendamento confirmado
+              </p>
+            </div>
+
+            <span
+              class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full"
+            >
+              Confirmado
+            </span>
+
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+
+            <div>
+              <p><strong>Serviços:</strong> Só cabelo</p>
+              <p><strong>Barbeiro:</strong> Coquin</p>
+              <p><strong>Valor:</strong> R$ 60,00</p>
+            </div>
+
+            <div>
+              <p><strong>Data:</strong> 15/07/2026</p>
+              <p><strong>Horário:</strong> 14:00</p>
+              <p><strong>Telefone:</strong> (34) 99999-9999</p>
+            </div>
+
+          </div>
+
+          <div class="mt-4">
+            <p class="text-sm">
+              <strong>Email:</strong> joao@email.com
+            </p>
+          </div>
+
+          <div class="flex justify-end gap-3 mt-6">
+
+            <button
+              class="bg-black text-white px-5 py-2 rounded-xl hover:bg-gray-800 transition flex items-center gap-2"
+            >
+              <i class="fas fa-pen"></i>
+              Editar
+            </button>
+
+            <button
+              class="bg-red-500 text-white px-5 py-2 rounded-xl hover:bg-red-600 transition flex items-center gap-2"
+            >
+              <i class="fas fa-trash"></i>
+              Cancelar
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Card -->
+        <div
+          class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
+        >
+
+          <div class="flex justify-between items-start mb-4">
+
+            <div>
+              <h2 class="text-xl font-bold">
+                Maria Oliveira
+              </h2>
+
+              <p class="text-gray-500 text-sm">
+                Agendamento confirmado
+              </p>
+            </div>
+
+            <span
+              class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full"
+            >
+              Confirmado
+            </span>
+
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+
+            <div>
+              <p><strong>Serviços:</strong> Pacote Completo</p>
+              <p><strong>Barbeiro:</strong> Gustavo</p>
+              <p><strong>Valor:</strong> R$ 160,00</p>
+            </div>
+
+            <div>
+              <p><strong>Data:</strong> 16/07/2026</p>
+              <p><strong>Horário:</strong> 15:00</p>
+              <p><strong>Telefone:</strong> (34) 98888-7777</p>
+            </div>
+
+          </div>
+
+          <div class="mt-4">
+            <p class="text-sm">
+              <strong>Email:</strong> maria@email.com
+            </p>
+          </div>
+
+          <div class="flex justify-end gap-3 mt-6">
+
+            <button
+              class="bg-black text-white px-5 py-2 rounded-xl hover:bg-gray-800 transition flex items-center gap-2"
+            >
+              <i class="fas fa-pen"></i>
+              Editar
+            </button>
+
+            <button
+              class="bg-red-500 text-white px-5 py-2 rounded-xl hover:bg-red-600 transition flex items-center gap-2"
+            >
+              <i class="fas fa-trash"></i>
+              Cancelar
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>
