@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Administrativo - Bloquear Dias</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-900">
+
+<div class="flex h-screen overflow-hidden">
+
+  <!-- Sidebar -->
+  <aside class="w-20 bg-black flex flex-col items-center py-6 justify-between shrink-0">
+
+    <div class="flex flex-col items-center space-y-8 w-full">
+
+      <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center font-bold text-black text-xl">
+        B
+      </div>
+
+      <nav class="flex flex-col space-y-6 w-full items-center">
+
+        <a href="#" class="p-3 text-gray-400 hover:text-white transition rounded-xl">
+          <i class="fas fa-calendar-check text-lg"></i>
+        </a>
+
+        <a href="#" class="p-3 text-gray-400 hover:text-white transition rounded-xl">
+          <i class="fas fa-users text-lg"></i>
+        </a>
+
+        <a href="#" class="p-3 text-gray-400 hover:text-white transition rounded-xl">
+          <i class="fas fa-cut text-lg"></i>
+        </a>
+
+        <a href="#" class="p-3 text-gray-400 hover:text-white transition rounded-xl">
+          <i class="fas fa-scissors text-lg"></i>
+        </a>
+
+        <a href="#" class="p-3 text-white bg-gray-900 rounded-xl">
+          <i class="fas fa-calendar-times text-lg"></i>
+        </a>
+
+      </nav>
+
+    </div>
+
+    <button class="p-3 text-gray-400 hover:text-red-500 transition">
+      <i class="fas fa-sign-out-alt text-lg"></i>
+    </button>
+
+  </aside>
+
+  <!-- Conteúdo -->
+  <main class="flex-1 overflow-y-auto p-8">
+
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Cabeçalho -->
+      <div class="flex justify-between items-center mb-10">
+
+        <div>
+
+          <h1 class="text-3xl font-black">
+            Bloquear dias
+          </h1>
+
+          <p class="text-gray-500 mt-1">
+            Escolha os dias em que nenhum horário poderá ser agendado.
+          </p>
+
+        </div>
+
+        <button
+          class="bg-black text-white px-5 py-3 rounded-xl hover:bg-gray-800 transition font-semibold flex items-center gap-2">
+
+          <i class="fas fa-save"></i>
+
+          Salvar alterações
+
+        </button>
+
+      </div>
+
+      <!-- Card calendário -->
+      <section class="bg-white rounded-3xl shadow-sm border border-gray-200 p-8">
+
+        <div class="flex justify-between items-center mb-8">
+
+          <button
+            class="w-10 h-10 rounded-xl border hover:bg-gray-100 transition">
+
+            <i class="fas fa-chevron-left"></i>
+
+          </button>
+
+          <h2 class="text-2xl font-bold">
+            Julho de 2026
+          </h2>
+
+          <button
+            class="w-10 h-10 rounded-xl border hover:bg-gray-100 transition">
+
+            <i class="fas fa-chevron-right"></i>
+
+          </button>
+
+        </div>
+
+        <!-- Dias da semana -->
+        <div class="grid grid-cols-7 gap-3 text-center mb-4">
+
+          <span class="font-semibold text-gray-400">DOM</span>
+          <span class="font-semibold text-gray-400">SEG</span>
+          <span class="font-semibold text-gray-400">TER</span>
+          <span class="font-semibold text-gray-400">QUA</span>
+          <span class="font-semibold text-gray-400">QUI</span>
+          <span class="font-semibold text-gray-400">SEX</span>
+          <span class="font-semibold text-gray-400">SÁB</span>
+
+        </div>
+
+        <!-- Calendário -->
+        <div
+          id="calendario-bloqueio"
+          class="grid grid-cols-7 gap-3">
+
+          <!-- vazios -->
+          <div></div>
+          <div></div>
+
+          <!-- dias -->
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            1
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            2
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            3
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            4
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            5
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            6
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            7
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            8
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            9
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border bg-black text-white">
+            10
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            11
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            12
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            13
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            14
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            15
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            16
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            17
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            18
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            19
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            20
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            21
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            22
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            23
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            24
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            25
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            26
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            27
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            28
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            29
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            30
+          </button>
+
+          <button class="dia-bloqueio h-16 rounded-2xl border hover:border-black transition">
+            31
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- Lista -->
+      <section class="mt-10">
+
+        <h2 class="text-2xl font-bold mb-6">
+          Dias bloqueados
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <div
+            class="bg-white rounded-2xl border border-gray-200 p-5 flex justify-between items-center">
+
+            <div>
+
+              <h3 class="font-bold text-lg">
+                10/07/2026
+              </h3>
+
+              <p class="text-gray-500 text-sm">
+                Nenhum agendamento permitido.
+              </p>
+
+            </div>
+
+            <button
+              class="text-red-500 hover:text-red-700 transition">
+
+              <i class="fas fa-trash"></i>
+
+            </button>
+
+          </div>
+
+          <div
+            class="bg-white rounded-2xl border border-gray-200 p-5 flex justify-between items-center">
+
+            <div>
+
+              <h3 class="font-bold text-lg">
+                18/07/2026
+              </h3>
+
+              <p class="text-gray-500 text-sm">
+                Nenhum agendamento permitido.
+              </p>
+
+            </div>
+
+            <button
+              class="text-red-500 hover:text-red-700 transition">
+
+              <i class="fas fa-trash"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Aviso -->
+      <section class="mt-10">
+
+        <div
+          class="bg-yellow-50 border border-yellow-200 rounded-2xl p-6 flex gap-4">
+
+          <i
+            class="fas fa-circle-info text-yellow-500 text-xl mt-1"></i>
+
+          <div>
+
+            <h3 class="font-bold mb-2">
+              Como funcionará
+            </h3>
+
+            <p class="text-gray-600 leading-relaxed">
+
+              Ao selecionar um dia e salvar as alterações, nenhum cliente poderá
+              realizar agendamentos nessa data. Futuramente esta tela será
+              integrada ao banco de dados para bloquear automaticamente todos os
+              horários daquele dia.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="adm-bloqueio-dias.js"></script>
+
+</body>
+</html>
