@@ -7,8 +7,12 @@
     <link href="./dist/output.css" rel="stylesheet" />
     <script type="module" src="main.js" defer></script>
 
-    <link rel="icon" type="image/png" href="assets main page/barbafavicon.png">
-    
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets main page/barbafavicon.png"
+    />
+
     <style>
       * {
         font-family: "Inter", sans-serif !important;
@@ -55,27 +59,65 @@
           >
             <a
               href="#home"
-              class="text-[#140707] text-[1.1rem] font-extrabold transition-all duration-300 hover:bg-white hover:border-[3px] hover:border-[#140707] hover:p-[0.7rem]"
+              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
+              style="
+                border-bottom: 2px solid transparent;
+                transition: border-color 0.2s;
+              "
+              onmouseover="this.style.borderColor = '#140707'"
+              onmouseout="this.style.borderColor = 'transparent'"
               >Nossos serviços</a
             >
             <a
               href="#professionals"
-              class="text-[#140707] text-[1.1rem] font-extrabold transition-all duration-300 hover:bg-white hover:border-[3px] hover:border-[#140707] hover:p-[0.7rem]"
+              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
+              style="
+                border-bottom: 2px solid transparent;
+                transition: border-color 0.2s;
+              "
+              onmouseover="this.style.borderColor = '#140707'"
+              onmouseout="this.style.borderColor = 'transparent'"
               >Profissionais</a
             >
             <a
               href="#contacts"
-              class="text-[#140707] text-[1.1rem] font-extrabold transition-all duration-300 hover:bg-white hover:border-[3px] hover:border-[#140707] hover:p-[0.7rem]"
+              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
+              style="
+                border-bottom: 2px solid transparent;
+                transition: border-color 0.2s;
+              "
+              onmouseover="this.style.borderColor = '#140707'"
+              onmouseout="this.style.borderColor = 'transparent'"
               >Contatos</a
             >
             <a
               href="#about-us"
-              class="text-[#140707] text-[1.1rem] font-extrabold transition-all duration-300 hover:bg-white hover:border-[3px] hover:border-[#140707] hover:p-[0.7rem]"
+              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
+              style="
+                border-bottom: 2px solid transparent;
+                transition: border-color 0.2s;
+              "
+              onmouseover="this.style.borderColor = '#140707'"
+              onmouseout="this.style.borderColor = 'transparent'"
               >Sobre nós</a
             >
             <a
               href="login page/loginpage.html"
-              class="bg-black font-bold border-2 inline-flex items-center justify-center text-white px-3 py-2 rounded-lg transition-colors cursor-pointer shadow-md"
+              class="bg-black font-bold border-2 inline-flex items-center justify-center text-white px-3 py-2 rounded-lg cursor-pointer shadow-md"
+              style="
+                border-color: #000000;
+                transition:
+                  background-color 0.2s,
+                  color 0.2s;
+              "
+              onmouseover="
+                this.style.backgroundColor = 'transparent';
+                this.style.color = '#000000';
+              "
+              onmouseout="
+                this.style.backgroundColor = '#000000';
+                this.style.color = '#ffffff';
+              "
               >Login</a
             >
           </div>
@@ -102,10 +144,42 @@
             <button class="flex flex-row gap-4 mt-5">
               <a
                 class="abrir-agendamento bg-black font-bold inline-flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
+                style="
+                  border-color: #000000;
+                  transition:
+                    background-color 0.2s,
+                    color 0.2s;
+                "
+                onmouseover="
+                  this.style.backgroundColor = 'transparent';
+                  this.style.color = '#000000';
+                  this.borderColor = '#000000';
+                "
+                onmouseout="
+                  this.style.backgroundColor = '#000000';
+                  this.style.color = '#ffffff';
+                "
                 >Agendar um horário</a
               >
               <a
-                class="abrir-agendamento bg-white font-bold inline-flex items-center justify-center text-black px-3 py-2 transition-colors cursor-pointer border border-gray-400 shadow-md"
+                class="abrir-agendamento bg-white font-bold inline-flex items-center justify-center text-black px-3 py-2 transition-colors cursor-pointer border shadow-md"
+                style="
+                  border-color: #000000;
+                  transition:
+                    background-color 0.2s,
+                    color 0.2s,
+                    border-color 0.2s;
+                "
+                onmouseover="
+                  this.style.backgroundColor = '#000000';
+                  this.style.color = '#ffffff';
+                  this.style.borderColor = '#000000';
+                "
+                onmouseout="
+                  this.style.backgroundColor = '#ffffff';
+                  this.style.color = '#000000';
+                  this.style.borderColor = '#000000';
+                "
                 >Ver nossos pacotes</a
               >
             </button>
@@ -137,7 +211,7 @@
             <h2>
               Barbearia <br />
               especializada em <br />
-              cuidado pessoal <br />
+              care pessoal <br />
               há 18 anos.
             </h2>
           </div>
@@ -159,14 +233,13 @@
       </div>
 
       <div
-        class="relative grid grid-cols-2 max-w-[800px] mx-auto text-black w-full items-center justify-center"
+        class="relative grid grid-cols-2 max-w-[800px] mx-auto text-black w-full items-stretch justify-center"
       >
         <div
           class="absolute inset-y-0 left-1/2 w-px bg-black pointer-events-none z-10"
         ></div>
         <div
           class="absolute inset-x-0 top-1/2 h-px bg-black pointer-events-none z-10"
-          style="transform: translate(0px, -25px)"
         ></div>
         <div class="p-8 bg-white flex gap-4 items-start">
           <img
@@ -180,7 +253,7 @@
               Corte personalizado na medida, de acordo com o formato do seu
               rosto.
             </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm -translate-x-3.5">
+            <div class="flex gap-6 mt-3 font-bold text-sm">
               <span>R$ 60</span>
               <span class="font-bold text-black flex items-center gap-1">
                 <svg
@@ -211,7 +284,7 @@
             <p class="text-gray-600 text-sm mt-1 text-[17px]">
               Corte personalizado, combinado com um design de sobrancelhas.
             </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm -translate-x-3.5">
+            <div class="flex gap-6 mt-3 font-bold text-sm">
               <span>R$ 110</span>
               <span class="font-bold text-black flex items-center gap-1">
                 <svg
@@ -231,7 +304,7 @@
             </div>
           </div>
         </div>
-        <div class="p-8 bg-white flex items-start">
+        <div class="p-8 bg-white flex gap-4 items-start">
           <img
             src="assets main page/design-barba.svg"
             alt="ícone barba"
@@ -243,7 +316,7 @@
               Design de barba personalizado para o cliente com technique
               precisa.
             </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm -translate-x-3.5">
+            <div class="flex gap-6 mt-3 font-bold text-sm">
               <span>R$ 60</span>
               <span class="font-bold text-black flex items-center gap-1">
                 <svg
@@ -275,7 +348,7 @@
               Combinação entre todos os pacotes sendo Cabelo + Barba +
               Sobrancelha.
             </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm -translate-x-3.5">
+            <div class="flex gap-6 mt-3 font-bold text-sm">
               <span>R$ 160</span>
               <span class="font-bold text-black flex items-center gap-1">
                 <svg
@@ -295,15 +368,13 @@
             </div>
           </div>
         </div>
-        <div
-          class="w-full flex flex-row gap-4 mt-5 items-center justify-center"
-          style="transform: translate(200px, 100px)"
+      </div>
+
+      <div class="w-full flex flex-row gap-4 mt-12 items-center justify-center">
+        <a
+          class="abrir-agendamento bg-black font-bold inline-flex flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
+          >Conferir disponibilidade</a
         >
-          <a
-            class="abrir-agendamento bg-black font-bold inline-flex flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
-            >Conferir disponibilidade</a
-          >
-        </div>
       </div>
 
       <div

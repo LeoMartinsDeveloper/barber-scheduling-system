@@ -12,6 +12,7 @@ function inicializarLogicaAdm() {
   let dataCalendario = new Date();
   let diaSelecionadoElement = null;
   let valorDiaSelecionado = null;
+  const memoriaBloqueios = {};
 
   const meses = [
     "Janeiro",
@@ -34,6 +35,27 @@ function inicializarLogicaAdm() {
       const iconeExistente = botao.querySelector(".fa-ban");
       if (iconeExistente) {
         iconeExistente.remove();
+      }
+    });
+  }
+
+  function aplicarBloqueiosSalvos() {
+    resetarHorarios();
+    const barbeiroSelecionado = document.querySelector(
+      ".card-barbeiro-adm.bg-black h4",
+    );
+    if (!barbeiroSelecionado || !valorDiaSelecionado) return;
+    const nomeBarbeiro = barbeiroSelecionado.textContent.trim();
+    const dataFormatada = `${valorDiaSelecionado.dia}/${valorDiaSelecionado.mes + 1}/${valorDiaSelecionado.ano}`;
+    const chave = `${nomeBarbeiro}_${dataFormatada}`;
+    const bloqueados = memoriaBloqueios[chave] || [];
+    horarios.forEach((botao) => {
+      if (bloqueados.includes(botao.textContent.trim())) {
+        botao.classList.add("border-red-500", "bg-red-50", "text-red-600");
+        const icone = document.createElement("i");
+        icone.className =
+          "fas fa-ban text-red-600 absolute top-1 right-1 text-[10px]";
+        botao.appendChild(icone);
       }
     });
   }
@@ -103,7 +125,7 @@ function inicializarLogicaAdm() {
         diaSelecionadoElement = botaoDia;
         valorDiaSelecionado = { dia, mes, ano };
 
-        resetarHorarios();
+        aplicarBloqueiosSalvos();
       });
 
       daysGrid.appendChild(botaoDia);
@@ -169,7 +191,7 @@ function inicializarLogicaAdm() {
         }
       }
 
-      resetarHorarios();
+      aplicarBloqueiosSalvos();
     });
   });
 
@@ -225,6 +247,8 @@ function inicializarLogicaAdm() {
       }
 
       const dataFormatada = `${valorDiaSelecionado.dia}/${valorDiaSelecionado.mes + 1}/${valorDiaSelecionado.ano}`;
+      const chave = `${nomeBarbeiro}_${dataFormatada}`;
+      memoriaBloqueios[chave] = horáriosBloqueados;
 
       console.log(`Profissional: ${nomeBarbeiro}`);
       console.log(`Data: ${dataFormatada}`);
