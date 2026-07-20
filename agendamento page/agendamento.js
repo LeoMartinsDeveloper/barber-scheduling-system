@@ -1,4 +1,7 @@
-import { salvarAgendamento } from "./notificacao.js";
+import {
+    salvarAgendamento,
+    buscarHorariosOcupados
+} from "./api-agendamento.js";
 
 let servicosSelecionados = [];
 
@@ -249,12 +252,9 @@ export function inicializarLogicaModal() {
   });
 
   if (btnConfirmar) {
-    btnConfirmar.addEventListener("click", () => {
+    btnConfirmar.addEventListener("click", async () => {
       const diaSelecionado = document
         .querySelector(".calendar-day.bg-black")
-        ?.textContent.trim();
-      const servicoSelecionado = document
-        .querySelector(".botao-pacote.bg-black h4")
         ?.textContent.trim();
       const barbeiroSelecionado = document
         .querySelector(".botao-barbeiro.bg-black h4")
@@ -311,19 +311,19 @@ export function inicializarLogicaModal() {
       
       console.log("Enviando agendamento:", dadosAgendamento);
 
-      alert("Agendamento realizado com sucesso!");
+      try {
 
-      salvarAgendamento(dadosAgendamento)
-      .then(() => {
+        await salvarAgendamento(dadosAgendamento);
+
+        await atualizarHorariosDisponiveis();
 
         alert("Agendamento realizado com sucesso!");
 
-      })
-      .catch(() => {
-        alert("Erro ao realizar o agendamento.");
-      });
+      } catch (erro) {
 
-      salvarHorarioOcupado( barbeiroSelecionado, diaSelecionado, horarioSelecionado);
+          alert("Erro ao realizar o agendamento.");
+
+      }
 
       if (modal) {
         modal.classList.add("hidden");
@@ -333,75 +333,69 @@ export function inicializarLogicaModal() {
     });
   }
 
+  async function atualizarHorariosDisponiveis() {
 
-  function gerarChaveHorario(barbeiro, dia, horario) {
-  return `${barbeiro}-${dia}-${horario}`;
-}
+    const diaSelecionado = document
+        .querySelector(".calendar-day.bg-black")
+        ?.textContent.trim();
 
-function salvarHorarioOcupado(barbeiro, dia, horario) {
-  const chave = gerarChaveHorario(barbeiro, dia, horario);
-  localStorage.setItem(chave, "ocupado");
-}
+    const barbeiroSelecionado = document
+        .querySelector(".botao-barbeiro.bg-black h4")
+        ?.textContent.trim();
 
-function atualizarHorariosDisponiveis() {
+    if (!diaSelecionado || !barbeiroSelecionado) return;
 
-  const diaSelecionado = document
-    .querySelector(".calendar-day.bg-black")
-    ?.textContent.trim();
+    const data = `2026-07-${diaSelecionado.padStart(2, "0")}`;
 
-  const barbeiroSelecionado = document
-    .querySelector(".botao-barbeiro.bg-black h4")
-    ?.textContent.trim();
-
-  if (!diaSelecionado || !barbeiroSelecionado) return;
-
-  botaoHorario.forEach((botao) => {
-
-    const horario = botao.textContent.trim();
-
-    const chave = gerarChaveHorario(
-      barbeiroSelecionado,
-      diaSelecionado,
-      horario
+    const horariosOcupados = await buscarHorariosOcupados(
+        barbeiroSelecionado,
+        data
     );
 
-    if (localStorage.getItem(chave)) {
+    botaoHorario.forEach((botao) => {
 
-      botao.disabled = true;
+        const horario = botao.textContent.trim();
 
-      botao.classList.remove(
-        "bg-black",
-        "text-white",
-        "bg-white"
-      );
+        if (horariosOcupados.includes(horario)) {
 
-      botao.classList.add(
-        "bg-gray-200",
-        "text-gray-400",
-        "cursor-not-allowed",
-        "opacity-50"
-      );
+            botao.disabled = true;
 
-    } else {
+            botao.classList.remove(
+                "bg-black",
+                "text-white",
+                "bg-white"
+            );
 
-      botao.disabled = false;
+            botao.classList.add(
+                "bg-gray-200",
+                "text-gray-400",
+                "cursor-not-allowed",
+                "opacity-50"
+            );
 
-      botao.classList.remove(
-        "bg-gray-200",
-        "text-gray-400",
-        "cursor-not-allowed",
-        "opacity-50"
-      );
+        } else {
 
-      botao.classList.add("bg-white");
+            botao.disabled = false;
 
-    }
+            botao.classList.remove(
+                "bg-gray-200",
+                "text-gray-400",
+                "cursor-not-allowed",
+                "opacity-50"
+            );
 
-  });
+            botao.classList.add("bg-white");
+
+        }
+
+    });
+
+  }
 
 }
 
-}
+
+
 
 function atualizarResumo() {
 

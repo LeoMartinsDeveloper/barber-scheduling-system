@@ -1,0 +1,101 @@
+    <!doctype html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Painel Administrativo - Gerenciamento de Serviços</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    </head>
+
+    <body class="bg-gray-50 font-sans text-gray-900">
+
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Sidebar -->
+        <aside class="w-20 bg-black flex flex-col items-center py-6 justify-between shrink-0">
+
+            <div class="flex flex-col items-center space-y-8 w-full">
+
+                <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center font-bold text-black text-xl">
+                    B
+                </div>
+
+                <nav class="flex flex-col space-y-6 w-full items-center">
+
+                    <a href="#" class="p-3 text-gray-400 hover:text-white rounded-xl transition">
+                        <i class="fas fa-cut text-lg"></i>
+                    </a>
+
+                    <a href="#" class="p-3 text-gray-400 hover:text-white rounded-xl transition">
+                        <i class="fas fa-clipboard-list text-lg"></i>
+                    </a>
+
+                    <a href="#" class="p-3 text-gray-400 hover:text-white rounded-xl transition">
+                        <i class="fas fa-user-cog text-lg"></i>
+                    </a>
+
+                    <a href="#" class="p-3 text-white bg-gray-900 rounded-xl">
+                        <i class="fas fa-list text-lg"></i>
+                    </a>
+
+                    <a href="#" class="p-3 text-gray-400 hover:text-white rounded-xl transition">
+                        <i class="fas fa-calendar-alt text-lg"></i>
+                    </a>
+
+                    <a href="#" class="p-3 text-gray-400 hover:text-white rounded-xl transition">
+                        <i class="fas fa-ban text-lg"></i>
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <button class="p-3 text-gray-400 hover:text-red-500 transition">
+                <i class="fas fa-sign-out-alt text-lg"></i>
+            </button>
+
+        </aside>
+
+        <!-- Conteúdo -->
+        <main class="flex-1 overflow-y-auto p-8">
+
+            <div class="max-w-7xl mx-auto">
+
+                <div class="flex justify-between items-center mb-10">
+
+                    <h1 class="text-3xl font-bold">
+                        Gerenciamento de Serviços
+                    </h1>
+
+                    <button
+                        id="btn-novo-servico"
+                        class="bg-black text-white px-5 py-3 rounded-xl hover:bg-gray-800 transition flex items-center gap-2">
+
+                        <i class="fas fa-plus"></i>
+                        Novo serviço
+
+                    </button>
+
+                </div>
+
+                <div
+                    id="lista-servicos"
+                    class="grid lg:grid-cols-2 gap-8">
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script type="module" src="servicos.js"></script>
+
+    </body>
+    </html>
