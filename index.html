@@ -58,7 +58,7 @@
             class="w-full flex-row flex items-center gap-16 translate-x-0 justify-center"
           >
             <a
-              href="#home"
+              href="#services"
               class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
               style="
                 border-bottom: 2px solid transparent;
@@ -66,7 +66,6 @@
               "
               onmouseover="this.style.borderColor = '#140707'"
               onmouseout="this.style.borderColor = 'transparent'"
-              class="text-[#140707] text-[1.1rem] font-extrabold"
               >Nossos serviços</a
             >
             <a
@@ -225,7 +224,8 @@
       </div>
 
       <div
-        class="text-[45px] font-extrabold text-center mt-12 mb-20 w-full flex flex-col items-center justify-center"
+        id="services"
+        class="text-[45px] font-extrabold text-center mt-12 mb-20 w-full flex flex-col items-center justify-center scroll-mt-24"
         style="margin-top: -360px"
       >
         <a href="#bundlestitle" class="no-underline text-black"
@@ -393,7 +393,8 @@
       </div>
 
       <div
-        class="text-[45px] font-extrabold text-center pt-16 pb-8 w-full flex flex-col items-center justify-center"
+        id="professionals"
+        class="text-[45px] font-extrabold text-center pt-16 pb-8 w-full flex flex-col items-center justify-center scroll-mt-24"
         style="margin-top: 110px"
       >
         <a href="#equipe" class="no-underline text-black">Nossa equipe</a>
@@ -491,7 +492,42 @@
         </div>
       </div>
 
-      <div class="bg-black text-white w-full py-12 px-6">
+      <!-- Sobre nós -->
+      <div id="about-us" class="w-full bg-white py-20 px-6 scroll-mt-24">
+        <div class="text-[45px] font-extrabold text-center mb-12">
+          <h2>Sobre nós</h2>
+        </div>
+        <div
+          class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12"
+        >
+          <img
+            src="assets main page/barbearia.jpeg"
+            alt="Nossa barbearia"
+            class="w-full md:w-[420px] h-[300px] object-cover rounded-[20px] shadow-2xl"
+          />
+          <div class="flex flex-col gap-4 max-w-[520px]">
+            <p class="text-[20px] leading-relaxed">
+              A <span class="font-bold">WeBarber</span> nasceu em 2006, no bairro
+              Martins, em Uberlândia. Há mais de 18 anos cuidamos do visual dos
+              nossos clientes com cortes modernos e clássicos.
+            </p>
+            <p class="text-[20px] leading-relaxed">
+              Nosso time é formado por profissionais especializados em corte,
+              barba e design de sobrancelha, sempre com atendimento
+              personalizado e um ambiente acolhedor.
+            </p>
+            <a
+              class="abrir-agendamento bg-black font-bold inline-flex items-center justify-center text-white px-4 py-2 mt-2 w-fit cursor-pointer shadow-md"
+              style="transition: background-color 0.2s, color 0.2s"
+              onmouseover="this.style.backgroundColor = 'transparent'; this.style.color = '#000000';"
+              onmouseout="this.style.backgroundColor = '#000000'; this.style.color = '#ffffff';"
+              >Agende seu horário</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div id="contacts" class="bg-black text-white w-full py-12 px-6 scroll-mt-24">
         <div
           class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
         >

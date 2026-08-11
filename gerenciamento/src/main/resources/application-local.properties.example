@@ -1,0 +1,15 @@
+# Copie este arquivo para "application-local.properties" e preencha com os valores reais.
+# O arquivo application-local.properties NÃO é versionado (está no .gitignore).
+
+spring.datasource.url=jdbc:postgresql://SEU_HOST_NEON/neondb?sslmode=require&channelBinding=require
+spring.datasource.username=SEU_USUARIO
+spring.datasource.password=SUA_SENHA
+
+spring.mail.username=seuemail@gmail.com
+spring.mail.password=SUA_SENHA_DE_APP
+
+# WhatsApp (Evolution API) - opcional
+# whatsapp.api.enabled=true
+# whatsapp.api.url=https://sua-evolution-api.com
+# whatsapp.api.instance=webarber
+# whatsapp.api.token=SUA_APIKEY

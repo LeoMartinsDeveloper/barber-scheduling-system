@@ -24,7 +24,7 @@ function logar(){
         console.log(response.status);
 
         if(response.ok){
-            alert("Login realizado com sucesso!");
+            localStorage.setItem("webarber_adm", "true");
             window.location.href = "../gerenciamento page/gerenciamento.html";
         }else{
             alert("Email ou senha inválidos!");

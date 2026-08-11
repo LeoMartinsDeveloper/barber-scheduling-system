@@ -3,12 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento</title>
+    <title>Painel Administrativo - Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
     <link rel="icon" type="image/png" href="../assets main page/barbafavicon.png">
-
 </head>
-<body>
-    
+
+<body class="bg-gray-50 font-sans text-gray-900" data-active-page="dashboard">
+
+<div class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar (injetada por admin-sidebar.js) -->
+    <div id="sidebar-root"></div>
+
+    <!-- Conteúdo -->
+    <main class="flex-1 overflow-y-auto p-8">
+
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Cabeçalho -->
+            <div class="flex justify-between items-center mb-10">
+                <div>
+                    <h1 class="text-3xl font-bold">Dashboard</h1>
+                    <p class="text-gray-500 mt-1" id="data-hoje">Bem-vindo(a) ao painel WeBarber.</p>
+                </div>
+
+                <a href="../adm-gerenciar-horarios/adm-gerenciar-horarios.html"
+                   class="bg-black text-white px-5 py-3 rounded-xl hover:bg-gray-800 transition flex items-center gap-2">
+                    <i class="fas fa-calendar-check"></i>
+                    Ver agendamentos
+                </a>
+            </div>
+
+            <!-- Cards de estatísticas -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+
+                <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-gray-500 font-medium">Agendamentos hoje</span>
+                        <div class="w-10 h-10 bg-black rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                    </div>
+                    <p id="stat-hoje" class="text-4xl font-black">–</p>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-gray-500 font-medium">Faturamento (hoje)</span>
+                        <div class="w-10 h-10 bg-black rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <p id="stat-faturamento" class="text-4xl font-black">–</p>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-gray-500 font-medium">Total de agendamentos</span>
+                        <div class="w-10 h-10 bg-black rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                    </div>
+                    <p id="stat-total" class="text-4xl font-black">–</p>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-gray-200 shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-gray-500 font-medium">Barbeiros / Serviços</span>
+                        <div class="w-10 h-10 bg-black rounded-xl flex items-center justify-center text-white">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <p id="stat-equipe" class="text-4xl font-black">–</p>
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- Próximos agendamentos -->
+                <section class="lg:col-span-2 bg-white rounded-3xl border border-gray-200 shadow-sm p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold">Próximos agendamentos</h2>
+                        <a href="../adm-gerenciar-horarios/adm-gerenciar-horarios.html"
+                           class="text-sm text-gray-500 hover:text-black transition">Ver todos</a>
+                    </div>
+
+                    <div id="lista-proximos" class="space-y-4">
+                        <p class="text-gray-400">Carregando...</p>
+                    </div>
+                </section>
+
+                <!-- Atalhos -->
+                <section class="bg-white rounded-3xl border border-gray-200 shadow-sm p-8">
+                    <h2 class="text-2xl font-bold mb-6">Atalhos</h2>
+
+                    <div class="flex flex-col gap-3">
+                        <a href="../adm-gerenciar-barbeiros/adm-gerenciar-barbeiros.html"
+                           class="flex items-center gap-3 border border-gray-200 rounded-2xl px-4 py-3 hover:border-black transition">
+                            <i class="fas fa-users w-5 text-center"></i> Gerenciar barbeiros
+                        </a>
+                        <a href="../adm-gerenciar-servicos/adm-gerenciar-servicos.html"
+                           class="flex items-center gap-3 border border-gray-200 rounded-2xl px-4 py-3 hover:border-black transition">
+                            <i class="fas fa-scissors w-5 text-center"></i> Gerenciar serviços
+                        </a>
+                        <a href="../adm-bloquear-dia/adm-bloquear-dia.html"
+                           class="flex items-center gap-3 border border-gray-200 rounded-2xl px-4 py-3 hover:border-black transition">
+                            <i class="fas fa-calendar-times w-5 text-center"></i> Bloquear dias
+                        </a>
+                        <a href="../adm-bloquear-horarios/adm-bloquear-horarios.html"
+                           class="flex items-center gap-3 border border-gray-200 rounded-2xl px-4 py-3 hover:border-black transition">
+                            <i class="fas fa-ban w-5 text-center"></i> Bloquear horários
+                        </a>
+                        <a href="../index.html"
+                           class="flex items-center gap-3 border border-gray-200 rounded-2xl px-4 py-3 hover:border-black transition">
+                            <i class="fas fa-globe w-5 text-center"></i> Ver site público
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="../admin-sidebar.js"></script>
+<script type="module" src="gerenciamento.js"></script>
 </body>
 </html>

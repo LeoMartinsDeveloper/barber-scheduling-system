@@ -18,7 +18,7 @@ btnNovoBarbeiro.addEventListener("click", async () => {
         telefone: "",
         especialidade: "",
         status: "ATIVO",
-        foto: "../assets main page/default-user.png"
+        foto: "../assets main page/homem-solo.png"
     };
 
     await criarBarbeiro(novoBarbeiro);
@@ -41,6 +41,7 @@ async function carregarBarbeiros() {
 
                 <img
                     src="${barbeiro.foto}"
+                    onerror="this.src='../assets main page/homem-solo.png'"
                     class="w-24 h-24 rounded-full object-cover border-2 border-gray-200">
 
                 <div>
@@ -148,7 +149,7 @@ function adicionarEventos() {
                 descricao: document.getElementById(`descricao-${id}`).value,
                 telefone: document.getElementById(`telefone-${id}`).value,
                 status: document.getElementById(`status-${id}`).value,
-                foto: "../assets main page/default-user.png"
+                foto: "../assets main page/homem-solo.png"
 
             });
 

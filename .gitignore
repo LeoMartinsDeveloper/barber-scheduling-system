@@ -1,2 +1,10 @@
+# dependências
 node_modules/
-dist/output.css
+
+# ferramentas locais / IDE
+.claude/
+
+# segredos - nunca versionar
+.env
+*.env
+**/application-local.properties
