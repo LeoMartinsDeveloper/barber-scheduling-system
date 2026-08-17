@@ -1,8 +1,10 @@
 # dependências
 node_modules/
 
-# ferramentas locais / IDE
+# configs de IDE / ferramentas locais
 .claude/
+.idea/
+.vscode/
 
 # segredos - nunca versionar
 .env

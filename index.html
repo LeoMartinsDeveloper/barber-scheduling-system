@@ -1,11 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WeBarber</title>
+    <title>WeBarber — Barbearia</title>
     <link href="./dist/output.css" rel="stylesheet" />
     <script type="module" src="main.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
     <link
       rel="icon"
@@ -15,250 +22,170 @@
 
     <style>
       * {
-        font-family: "Inter", sans-serif !important;
+        font-family: "Inter", sans-serif;
       }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
+      html {
+        scroll-behavior: smooth;
       }
-      @keyframes marquee {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
+      body {
+        -webkit-font-smoothing: antialiased;
       }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-      .animate-marquee:hover {
-        animation-play-state: paused;
+      .eyebrow {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: #9ca3af;
       }
     </style>
   </head>
-  <body class="bg-white m-0 p-0 box-border w-full overflow-x-hidden">
-    <div class="w-full overflow-hidden flex flex-col">
-      <div id="header" class="w-full">
-        <div
-          class="relative flex justify-center items-center p-[1.4rem] max-w-[1375px] mx-auto w-full"
+
+  <body class="bg-white text-[#0a0a0a] antialiased overflow-x-hidden">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-md border-b border-gray-200"
+    >
+      <div
+        class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <a href="#home" class="text-2xl font-extrabold tracking-tight">
+          WeBarber
+        </a>
+
+        <nav
+          class="hidden md:flex items-center gap-9 text-[0.95rem] font-semibold"
         >
-          <div
-            class="absolute left-[1.4rem] text-black font-bold cursor-pointer text-[25px] max-w-[500px] items-center justify-center flex"
-            style="transform: translate(-200px, -5px)"
+          <a
+            href="#services"
+            class="text-gray-600 hover:text-black border-b-2 border-transparent hover:border-black pb-0.5 transition"
+            >Nossos serviços</a
           >
-            <h1>WeBarber</h1>
+          <a
+            href="#professionals"
+            class="text-gray-600 hover:text-black border-b-2 border-transparent hover:border-black pb-0.5 transition"
+            >Profissionais</a
+          >
+          <a
+            href="#contacts"
+            class="text-gray-600 hover:text-black border-b-2 border-transparent hover:border-black pb-0.5 transition"
+            >Contatos</a
+          >
+          <a
+            href="#about-us"
+            class="text-gray-600 hover:text-black border-b-2 border-transparent hover:border-black pb-0.5 transition"
+            >Sobre nós</a
+          >
+        </nav>
+
+        <a
+          href="login page/loginpage.html"
+          class="inline-flex items-center justify-center border border-black bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-white hover:text-black transition"
+          >Login</a
+        >
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section
+      id="home"
+      class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-24 grid md:grid-cols-2 gap-16 items-center scroll-mt-24"
+    >
+      <div>
+        <p class="eyebrow">Barbearia · Desde 2006</p>
+        <h1
+          class="text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mt-5"
+        >
+          O corte mais preciso que você precisa.
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed mt-6 max-w-md">
+          Agende seu horário com um dos nossos profissionais e eleve o seu
+          visual com um dos nossos pacotes.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mt-9">
+          <a
+            class="abrir-agendamento cursor-pointer inline-flex items-center justify-center bg-black text-white font-semibold px-7 py-3.5 rounded-md border border-black hover:bg-white hover:text-black transition"
+            >Agendar horário</a
+          >
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center bg-white text-black font-semibold px-7 py-3.5 rounded-md border border-gray-300 hover:border-black transition"
+            >Ver nossos pacotes</a
+          >
+        </div>
+
+        <div class="flex gap-10 mt-14 pt-8 border-t border-gray-200">
+          <div>
+            <p class="text-3xl font-black">18</p>
+            <p class="text-sm text-gray-500 mt-1">anos de história</p>
           </div>
-          <div
-            class="w-full flex-row flex items-center gap-16 translate-x-0 justify-center"
-          >
-            <a
-              href="#services"
-              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
-              style="
-                border-bottom: 2px solid transparent;
-                transition: border-color 0.2s;
-              "
-              onmouseover="this.style.borderColor = '#140707'"
-              onmouseout="this.style.borderColor = 'transparent'"
-              >Nossos serviços</a
-            >
-            <a
-              href="#professionals"
-              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
-              style="
-                border-bottom: 2px solid transparent;
-                transition: border-color 0.2s;
-              "
-              onmouseover="this.style.borderColor = '#140707'"
-              onmouseout="this.style.borderColor = 'transparent'"
-              >Profissionais</a
-            >
-            <a
-              href="#contacts"
-              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
-              style="
-                border-bottom: 2px solid transparent;
-                transition: border-color 0.2s;
-              "
-              onmouseover="this.style.borderColor = '#140707'"
-              onmouseout="this.style.borderColor = 'transparent'"
-              >Contatos</a
-            >
-            <a
-              href="#about-us"
-              class="text-[#140707] text-[1.1rem] font-extrabold pb-1"
-              style="
-                border-bottom: 2px solid transparent;
-                transition: border-color 0.2s;
-              "
-              onmouseover="this.style.borderColor = '#140707'"
-              onmouseout="this.style.borderColor = 'transparent'"
-              >Sobre nós</a
-            >
-            <a
-              href="login page/loginpage.html"
-              class="bg-black font-bold border-2 inline-flex items-center justify-center text-white px-3 py-2 rounded-lg cursor-pointer shadow-md"
-              style="
-                border-color: #000000;
-                transition:
-                  background-color 0.2s,
-                  color 0.2s;
-              "
-              onmouseover="
-                this.style.backgroundColor = 'transparent';
-                this.style.color = '#000000';
-              "
-              onmouseout="
-                this.style.backgroundColor = '#000000';
-                this.style.color = '#ffffff';
-              "
-              >Login</a
-            >
+          <div>
+            <p class="text-3xl font-black">3</p>
+            <p class="text-sm text-gray-500 mt-1">profissionais</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black">4</p>
+            <p class="text-sm text-gray-500 mt-1">serviços</p>
           </div>
         </div>
       </div>
 
-      <div
-        id="home"
-        class="max-w-[1750px] mx-auto p-[60px_20px] flex flex-col items-center justify-center w-full gap-16 -translate-x-0"
-      >
+      <div class="relative">
+        <img
+          src="assets main page/primeiraimg.jpg"
+          alt="Corte de cabelo na WeBarber"
+          class="w-full h-[420px] md:h-[540px] object-cover rounded-md shadow-2xl"
+        />
         <div
-          class="flex flex-row flex-wrap justify-center items-center gap-12 w-full"
+          class="hidden md:block absolute -bottom-8 -left-8 w-40 h-48 overflow-hidden rounded-md shadow-2xl border-4 border-white"
         >
-          <div class="flex flex-col items-start max-w-[500px]">
-            <h1 class="text-[45px] font-black text-left text-6xl leading-tight">
-              O corte <br />
-              mais preciso <br />
-              que você precisa.
-            </h1>
-            <p class="text-[20px] text-left mt-6">
-              Agende seu horário com um de nossos professionals para alavancar
-              seu visual com um de nossos pacotes.
-            </p>
-            <button class="flex flex-row gap-4 mt-5">
-              <a
-                class="abrir-agendamento bg-black font-bold inline-flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
-                style="
-                  border-color: #000000;
-                  transition:
-                    background-color 0.2s,
-                    color 0.2s;
-                "
-                onmouseover="
-                  this.style.backgroundColor = 'transparent';
-                  this.style.color = '#000000';
-                  this.borderColor = '#000000';
-                "
-                onmouseout="
-                  this.style.backgroundColor = '#000000';
-                  this.style.color = '#ffffff';
-                "
-                >Agendar um horário</a
-              >
-              <a
-                class="abrir-agendamento bg-white font-bold inline-flex items-center justify-center text-black px-3 py-2 transition-colors cursor-pointer border shadow-md"
-                style="
-                  border-color: #000000;
-                  transition:
-                    background-color 0.2s,
-                    color 0.2s,
-                    border-color 0.2s;
-                "
-                onmouseover="
-                  this.style.backgroundColor = '#000000';
-                  this.style.color = '#ffffff';
-                  this.style.borderColor = '#000000';
-                "
-                onmouseout="
-                  this.style.backgroundColor = '#ffffff';
-                  this.style.color = '#000000';
-                  this.style.borderColor = '#000000';
-                "
-                >Ver nossos pacotes</a
-              >
-            </button>
-          </div>
-          <div class="animate-float-1">
-            <img
-              src="assets main page/primeiraimg.jpg"
-              alt="Cabelo"
-              class="w-60 h-71 object-cover rounded-[20px] -translate-x-2 shadow-2xl"
-            />
-          </div>
-        </div>
-        <div class="w-full flex justify-center animate-float-2">
           <img
             src="assets main page/segundaimg.jpg"
-            alt="Barbearia"
-            class="w-[250px] h-[290px] object-cover rounded-[20px] shadow-2xl"
-            style="transform: translate(350px, -10px)"
+            alt="Ambiente da barbearia"
+            class="w-full h-full object-cover"
           />
         </div>
-        <div
-          class="text-[1.1rem] max-w-[700px] text-start w-full -translate-80 -translate-x-45"
-          style="transform: translate(5px, -40px)"
-        >
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="services" class="bg-[#fafafa] border-y border-gray-200 scroll-mt-24">
+      <div class="max-w-6xl mx-auto px-6 py-24">
+        <div class="text-center max-w-2xl mx-auto">
+          <p class="eyebrow">Nossos serviços</p>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-4">
+            Pacotes sob medida
+          </h2>
+          <p class="text-gray-600 leading-relaxed mt-4">
+            Cortes modernos e clássicos, barba e design de sobrancelha — cada
+            serviço pensado no detalhe.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 mt-16">
+          <!-- Cabelo -->
           <div
-            class="text-[45px] font-extrabold text-start mb-4 font-black justify-center items-center"
-            style="transform: translate(130px, 0px)"
+            class="group bg-white border border-gray-200 rounded-md p-8 flex gap-5 hover:border-black transition"
           >
-            <h2>
-              Barbearia <br />
-              especializada em <br />
-              cuidado pessoal <br />
-              há 18 anos.
-            </h2>
-          </div>
-          <div class="text-[20px]" style="transform: translate(130px, 0px)">
-            Somos uma barbearia encontrada no bairro Martins <br />
-            desde 2006. Trabalhamos com cortes modernos e <br />
-            clássicos.
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="services"
-        class="text-[45px] font-extrabold text-center mt-12 mb-20 w-full flex flex-col items-center justify-center scroll-mt-24"
-        style="margin-top: -360px"
-      >
-        <a href="#bundlestitle" class="no-underline text-black"
-          >Nossos pacotes</a
-        >
-      </div>
-
-      <div
-        class="relative grid grid-cols-2 max-w-[800px] mx-auto text-black w-full items-stretch justify-center"
-      >
-        <div
-          class="absolute inset-y-0 left-1/2 w-px bg-black pointer-events-none z-10"
-        ></div>
-        <div
-          class="absolute inset-x-0 top-1/2 h-px bg-black pointer-events-none z-10"
-        ></div>
-        <div class="p-8 bg-white flex gap-4 items-start">
-          <img
-            src="assets main page/homem-cabelo.svg"
-            alt="Ícone Cabelo"
-            class="w-16 h-16 object-contain"
-          />
-          <div>
-            <h3 class="font-bold text-xl">Cabelo</h3>
-            <p class="text-gray-600 text-sm mt-1 text-[17px]">
-              Corte personalizado na medida, de acordo com o formato do seu
-              rosto.
-            </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm">
-              <span>R$ 60</span>
-              <span class="font-bold text-black flex items-center gap-1">
+            <img
+              src="assets main page/homem-cabelo.svg"
+              alt="Ícone cabelo"
+              class="w-14 h-14 object-contain shrink-0"
+            />
+            <div class="flex-1">
+              <div class="flex items-baseline justify-between gap-4">
+                <h3 class="text-xl font-bold">Cabelo</h3>
+                <span class="text-xl font-bold">R$ 60</span>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed mt-2">
+                Corte personalizado na medida, de acordo com o formato do seu
+                rosto.
+              </p>
+              <p
+                class="flex items-center gap-2 mt-4 text-xs font-semibold uppercase tracking-wider text-gray-400"
+              >
                 <svg
-                  class="w-4 h-4 text-black"
+                  class="w-4 h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -270,26 +197,32 @@
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
                 30 min
-              </span>
+              </p>
             </div>
           </div>
-        </div>
-        <div class="p-8 bg-white flex gap-4 items-start">
-          <img
-            src="assets main page/corte-sobrancelha.svg"
-            alt="ícone corte-sobrancelha"
-            class="w-16 h-16 object-contain"
-          />
-          <div>
-            <h3 class="font-bold text-xl">Corte + Sobrancelha</h3>
-            <p class="text-gray-600 text-sm mt-1 text-[17px]">
-              Corte personalizado, combinado com um design de sobrancelhas.
-            </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm">
-              <span>R$ 110</span>
-              <span class="font-bold text-black flex items-center gap-1">
+
+          <!-- Corte + Sobrancelha -->
+          <div
+            class="group bg-white border border-gray-200 rounded-md p-8 flex gap-5 hover:border-black transition"
+          >
+            <img
+              src="assets main page/corte-sobrancelha.svg"
+              alt="Ícone corte e sobrancelha"
+              class="w-14 h-14 object-contain shrink-0"
+            />
+            <div class="flex-1">
+              <div class="flex items-baseline justify-between gap-4">
+                <h3 class="text-xl font-bold">Corte + Sobrancelha</h3>
+                <span class="text-xl font-bold">R$ 110</span>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed mt-2">
+                Corte personalizado combinado com um design de sobrancelhas.
+              </p>
+              <p
+                class="flex items-center gap-2 mt-4 text-xs font-semibold uppercase tracking-wider text-gray-400"
+              >
                 <svg
-                  class="w-4 h-4 text-black"
+                  class="w-4 h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -301,26 +234,32 @@
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
                 60 min
-              </span>
+              </p>
             </div>
           </div>
-        </div>
-        <div class="p-8 bg-white flex gap-4 items-start">
-          <img
-            src="assets main page/design-barba.svg"
-            alt="ícone barba"
-            class="w-16 h-16 object-contain"
-          />
-          <div>
-            <h3 class="font-bold text-xl">Design de Barba</h3>
-            <p class="text-gray-600 text-sm mt-1 text-[17px]">
-              Design de barba personalizado para o cliente com técnica precisa.
-            </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm">
-              <span>R$ 60</span>
-              <span class="font-bold text-black flex items-center gap-1">
+
+          <!-- Design de Barba -->
+          <div
+            class="group bg-white border border-gray-200 rounded-md p-8 flex gap-5 hover:border-black transition"
+          >
+            <img
+              src="assets main page/design-barba.svg"
+              alt="Ícone barba"
+              class="w-14 h-14 object-contain shrink-0"
+            />
+            <div class="flex-1">
+              <div class="flex items-baseline justify-between gap-4">
+                <h3 class="text-xl font-bold">Design de Barba</h3>
+                <span class="text-xl font-bold">R$ 60</span>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed mt-2">
+                Design de barba personalizado com técnica precisa.
+              </p>
+              <p
+                class="flex items-center gap-2 mt-4 text-xs font-semibold uppercase tracking-wider text-gray-400"
+              >
                 <svg
-                  class="w-4 h-4 text-black"
+                  class="w-4 h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -332,27 +271,32 @@
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
                 30 min
-              </span>
+              </p>
             </div>
           </div>
-        </div>
-        <div class="p-8 bg-white flex gap-4 items-start">
-          <img
-            src="assets main page/pacote-completo.svg"
-            alt="ícone pacote-completo"
-            class="w-16 h-16 object-contain"
-          />
-          <div>
-            <h3 class="font-bold text-xl">Pacote completo</h3>
-            <p class="text-gray-600 text-sm mt-1 text-[17px]">
-              Combinação entre todos os pacotes sendo Cabelo + Barba +
-              Sobrancelha.
-            </p>
-            <div class="flex gap-6 mt-3 font-bold text-sm">
-              <span>R$ 160</span>
-              <span class="font-bold text-black flex items-center gap-1">
+
+          <!-- Pacote completo -->
+          <div
+            class="group bg-white border border-gray-200 rounded-md p-8 flex gap-5 hover:border-black transition"
+          >
+            <img
+              src="assets main page/pacote-completo.svg"
+              alt="Ícone pacote completo"
+              class="w-14 h-14 object-contain shrink-0"
+            />
+            <div class="flex-1">
+              <div class="flex items-baseline justify-between gap-4">
+                <h3 class="text-xl font-bold">Pacote completo</h3>
+                <span class="text-xl font-bold">R$ 160</span>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed mt-2">
+                Cabelo + Barba + Sobrancelha, a combinação completa.
+              </p>
+              <p
+                class="flex items-center gap-2 mt-4 text-xs font-semibold uppercase tracking-wider text-gray-400"
+              >
                 <svg
-                  class="w-4 h-4 text-black"
+                  class="w-4 h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -364,195 +308,172 @@
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
                 90 min
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="w-full flex flex-row gap-4 mt-12 items-center justify-center">
-        <a
-          class="abrir-agendamento bg-black font-bold inline-flex items-center justify-center text-white px-3 py-2 transition-colors cursor-pointer shadow-md"
-          style="
-            border-color: #000000;
-            transition:
-              background-color 0.2s,
-              color 0.2s;
-          "
-          onmouseover="
-            this.style.backgroundColor = 'transparent';
-            this.style.color = '#000000';
-            this.borderColor = '#000000';
-          "
-          onmouseout="
-            this.style.backgroundColor = '#000000';
-            this.style.color = '#ffffff';
-          "
-          >Conferir disponibilidade</a
-        >
-      </div>
-
-      <div
-        id="professionals"
-        class="text-[45px] font-extrabold text-center pt-16 pb-8 w-full flex flex-col items-center justify-center scroll-mt-24"
-        style="margin-top: 110px"
-      >
-        <a href="#equipe" class="no-underline text-black">Nossa equipe</a>
-      </div>
-
-      <div class="w-full overflow-hidden py-12 bg-[#f9f9f9]">
-        <div class="flex w-max animate-marquee gap-8 cursor-pointer pt-14 pb-4">
-          <div class="flex gap-8 items-center">
-            <div
-              class="relative w-[340px] p-6 pt-14 bg-white border border-gray-300 rounded-none text-center flex flex-col items-center justify-center mx-2"
-            >
-              <img
-                src="assets main page/williamcard.jpg"
-                alt="Junior"
-                class="absolute -top-12 w-24 h-24 rounded-full object-cover border border-gray-300 shadow-sm"
-              />
-              <h3 class="font-bold text-lg text-black mb-4">Junior</h3>
-              <p class="text-black text-sm leading-relaxed max-w-[280px]">
-                Olá meu nome é Junior e sou bom nos cortes
-              </p>
-            </div>
-            <div
-              class="relative w-[340px] p-6 pt-14 bg-white border border-gray-300 rounded-none text-center flex flex-col items-center justify-center mx-2"
-            >
-              <img
-                src="assets main page/coquincard.jpg"
-                alt="Coquin"
-                class="absolute -top-12 w-24 h-24 rounded-full object-cover border border-gray-300 shadow-sm"
-              />
-              <h3 class="font-bold text-lg text-black mb-4">Coquin</h3>
-              <p class="text-black text-sm leading-relaxed max-w-[280px]">
-                Olá meu nome é joão henrique conhecido como coquin, sou
-                especialista em visagismo e corto cabelo há 12 anos
-              </p>
-            </div>
-            <div
-              class="relative w-[340px] p-6 pt-14 bg-white border border-gray-300 rounded-none text-center flex flex-col items-center justify-center mx-2"
-            >
-              <img
-                src="assets main page/gustavocard.jpg"
-                alt="Renan"
-                class="absolute -top-12 w-24 h-24 rounded-full object-cover border border-gray-300 shadow-sm"
-              />
-              <h3 class="font-bold text-lg text-black mb-4">Renan</h3>
-              <p class="text-black text-sm leading-relaxed max-w-[280px]">
-                Olá meu nome é Renan especialista em design de sobrancelha e
-                cortes modernos.
-              </p>
-            </div>
-          </div>
-          <div class="flex gap-8 items-center" aria-hidden="true">
-            <div
-              class="relative w-[340px] p-6 pt-14 bg-white border border-gray-300 rounded-none text-center flex flex-col items-center justify-center mx-2"
-            >
-              <img
-                src="assets main page/barbeiro-carrossel.jpg"
-                alt="Junior"
-                class="absolute -top-12 w-24 h-24 rounded-full object-cover border border-gray-300 shadow-sm"
-              />
-              <h3 class="font-bold text-lg text-black mb-4">Junior</h3>
-              <p class="text-black text-sm leading-relaxed max-w-[280px]">
-                Olá meu nome é Junior conhecido como especialista em barba e
-                corte de cabelo há 10 anos
-              </p>
-            </div>
-            <div
-              class="relative w-[340px] p-6 pt-14 bg-white border border-gray-300 rounded-none text-center flex flex-col items-center justify-center mx-2"
-            >
-              <img
-                src="assets main page/barbeiro-carrossel2.jpg"
-                alt="Coquin"
-                class="absolute -top-12 w-24 h-24 rounded-full object-cover border border-gray-300 shadow-sm"
-              />
-              <h3 class="font-bold text-lg text-black mb-4">Coquin</h3>
-              <p class="text-black text-sm leading-relaxed max-w-[280px]">
-                Olá meu nome é joão henrique conhecido como coquin, sou
-                especialista em visagismo e corto cabelo há 12 anos
-              </p>
-            </div>
-            <div
-              class="relative w-[340px] p-6 pt-14 bg-white border border-gray-300 rounded-none text-center flex flex-col items-center justify-center mx-2"
-            >
-              <img
-                src="assets main page/homem-solo.png"
-                alt="Renan"
-                class="absolute -top-12 w-24 h-24 rounded-full object-cover border border-gray-300 shadow-sm"
-              />
-              <h3 class="font-bold text-lg text-black mb-4">Renan</h3>
-              <p class="text-black text-sm leading-relaxed max-w-[280px]">
-                Olá meu nome é Renan especialista em design de sobrancelha e
-                cortes modernos.
               </p>
             </div>
           </div>
         </div>
+
+        <div class="text-center mt-14">
+          <a
+            class="abrir-agendamento cursor-pointer inline-flex items-center justify-center bg-black text-white font-semibold px-8 py-3.5 rounded-md border border-black hover:bg-white hover:text-black transition"
+            >Conferir disponibilidade</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Profissionais -->
+    <section
+      id="professionals"
+      class="max-w-6xl mx-auto px-6 py-24 scroll-mt-24"
+    >
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="eyebrow">Profissionais</p>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-4">
+          Nossa equipe
+        </h2>
+        <p class="text-gray-600 leading-relaxed mt-4">
+          Profissionais experientes e apaixonados pelo que fazem.
+        </p>
       </div>
 
-      <!-- Sobre nós -->
-      <div id="about-us" class="w-full bg-white py-20 px-6 scroll-mt-24">
-        <div class="text-[45px] font-extrabold text-center mb-12">
-          <h2>Sobre nós</h2>
-        </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         <div
-          class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12"
+          class="text-center border border-gray-200 rounded-md p-8 hover:border-black transition"
         >
           <img
-            src="assets main page/barbearia.jpeg"
-            alt="Nossa barbearia"
-            class="w-full md:w-[420px] h-[300px] object-cover rounded-[20px] shadow-2xl"
+            src="assets main page/coquincard.jpg"
+            alt="Coquin"
+            class="w-28 h-28 rounded-full object-cover mx-auto border border-gray-200"
           />
-          <div class="flex flex-col gap-4 max-w-[520px]">
-            <p class="text-[20px] leading-relaxed">
-              A <span class="font-bold">WeBarber</span> nasceu em 2006, no bairro
-              Martins, em Uberlândia. Há mais de 18 anos cuidamos do visual dos
-              nossos clientes com cortes modernos e clássicos.
-            </p>
-            <p class="text-[20px] leading-relaxed">
-              Nosso time é formado por profissionais especializados em corte,
-              barba e design de sobrancelha, sempre com atendimento
-              personalizado e um ambiente acolhedor.
-            </p>
-            <a
-              class="abrir-agendamento bg-black font-bold inline-flex items-center justify-center text-white px-4 py-2 mt-2 w-fit cursor-pointer shadow-md"
-              style="transition: background-color 0.2s, color 0.2s"
-              onmouseover="this.style.backgroundColor = 'transparent'; this.style.color = '#000000';"
-              onmouseout="this.style.backgroundColor = '#000000'; this.style.color = '#ffffff';"
-              >Agende seu horário</a
-            >
-          </div>
+          <h3 class="text-xl font-bold mt-6">Coquin</h3>
+          <p
+            class="text-[0.7rem] uppercase tracking-[0.2em] text-gray-400 font-semibold mt-1"
+          >
+            Visagista
+          </p>
+          <p class="text-gray-600 text-sm leading-relaxed mt-4">
+            João Henrique, especialista em visagismo, corta cabelo há mais de 12
+            anos.
+          </p>
+        </div>
+
+        <div
+          class="text-center border border-gray-200 rounded-md p-8 hover:border-black transition"
+        >
+          <img
+            src="assets main page/williamcard.jpg"
+            alt="Junior"
+            class="w-28 h-28 rounded-full object-cover mx-auto border border-gray-200"
+          />
+          <h3 class="text-xl font-bold mt-6">Junior</h3>
+          <p
+            class="text-[0.7rem] uppercase tracking-[0.2em] text-gray-400 font-semibold mt-1"
+          >
+            Barba & Corte
+          </p>
+          <p class="text-gray-600 text-sm leading-relaxed mt-4">
+            Especialista em barba e corte de cabelo, com 10 anos de estrada.
+          </p>
+        </div>
+
+        <div
+          class="text-center border border-gray-200 rounded-md p-8 hover:border-black transition"
+        >
+          <img
+            src="assets main page/gustavocard.jpg"
+            alt="Renan"
+            class="w-28 h-28 rounded-full object-cover mx-auto border border-gray-200"
+          />
+          <h3 class="text-xl font-bold mt-6">Renan</h3>
+          <p
+            class="text-[0.7rem] uppercase tracking-[0.2em] text-gray-400 font-semibold mt-1"
+          >
+            Sobrancelha & Cortes
+          </p>
+          <p class="text-gray-600 text-sm leading-relaxed mt-4">
+            Especialista em design de sobrancelha e cortes modernos.
+          </p>
         </div>
       </div>
+    </section>
 
-      <div id="contacts" class="bg-black text-white w-full py-12 px-6 scroll-mt-24">
-        <div
-          class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
-        >
-          <div class="flex flex-col gap-2">
-            <h3 class="text-lg font-bold">Contatos:</h3>
-            <div
-              class="flex flex-col gap-1 text-base text-gray-300 whitespace-nowrap"
-            >
+    <!-- Sobre nós -->
+    <section
+      id="about-us"
+      class="bg-[#fafafa] border-y border-gray-200 scroll-mt-24"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center"
+      >
+        <img
+          src="assets main page/barbearia.jpeg"
+          alt="Nossa barbearia"
+          class="w-full h-[360px] md:h-[460px] object-cover rounded-md shadow-2xl"
+        />
+        <div>
+          <p class="eyebrow">Sobre nós</p>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-4">
+            Tradição desde 2006
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed mt-6">
+            A WeBarber nasceu em 2006, no bairro Martins, em Uberlândia. Há mais
+            de 18 anos cuidamos do visual dos nossos clientes com cortes modernos
+            e clássicos.
+          </p>
+          <p class="text-gray-600 leading-relaxed mt-4">
+            Nosso time é formado por profissionais especializados em corte, barba
+            e design de sobrancelha, sempre com atendimento personalizado e um
+            ambiente acolhedor.
+          </p>
+          <a
+            class="abrir-agendamento cursor-pointer inline-flex items-center justify-center bg-black text-white font-semibold px-7 py-3.5 rounded-md border border-black hover:bg-white hover:text-black transition mt-8"
+            >Agende seu horário</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé / Contatos -->
+    <footer id="contacts" class="bg-black text-white scroll-mt-24">
+      <div class="max-w-6xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div class="md:col-span-1">
+            <h2 class="text-2xl font-extrabold tracking-tight">WeBarber</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mt-3">
+              Barbearia especializada em cuidado pessoal, no bairro Martins,
+              desde 2006.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">
+              Contatos
+            </h3>
+            <div class="flex flex-col gap-1 text-gray-300 mt-4">
               <span>(34) 9 9999-9999</span>
               <span>(34) 9 9999-9999</span>
             </div>
           </div>
-          <div class="flex flex-col gap-2">
-            <h3 class="text-lg font-bold">Redes sociais:</h3>
-            <div
-              class="flex flex-col gap-1 text-base text-gray-300 whitespace-nowrap"
-            >
+
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">
+              Redes sociais
+            </h3>
+            <div class="flex flex-col gap-1 text-gray-300 mt-4">
               <span>@ronaldinhodocorte</span>
               <span>@cortamuito</span>
               <span>@cortadordecabelos</span>
             </div>
           </div>
-          <div class="flex flex-col gap-2">
-            <h3 class="text-lg font-bold">Onde estamos:</h3>
-            <div class="w-[280px] h-[160px] overflow-hidden rounded shadow-md">
+
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-500">
+              Onde estamos
+            </h3>
+            <div
+              class="w-full h-[150px] overflow-hidden rounded-md mt-4"
+            >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7548.906944203065!2d-48.292671072841365!3d-18.911311846265665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a4444d88ee493d%3A0x397e0217e8ab39a8!2sMartins%2C%20Uberl%C3%A2ndia%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1780507981216!5m2!1spt-BR!2sbr"
                 class="w-full h-full border-0"
@@ -562,8 +483,15 @@
             </div>
           </div>
         </div>
+
+        <div
+          class="border-t border-white/10 mt-16 pt-8 flex flex-col sm:flex-row justify-between gap-2 text-sm text-gray-500"
+        >
+          <span>© 2026 WeBarber. Todos os direitos reservados.</span>
+          <span>Bairro Martins · Uberlândia/MG</span>
+        </div>
       </div>
-    </div>
+    </footer>
 
     <div id="container-modal"></div>
   </body>
